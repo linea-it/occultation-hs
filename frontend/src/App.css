@@ -1,0 +1,143 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+body{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  max-width: 460px;
+  height:100%;
+  margin:auto;
+  background-color:#eee;
+}
+
+main{
+}
+
+.page{
+  margin-top: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color:#FFFFFF55;
+
+}
+
+h1{
+  margin: 25px 2em 45px 2em;
+  padding: 0px 0px 0.5em 0px;
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+}
+
+legend{
+  display: block;
+  float: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+fieldset{
+  padding: 20px;
+  margin: 1em;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color:#00000010;
+  border: solid 1.5px #D3D3D3;
+}
+
+fieldset legend{
+  text-align: center;
+  transform: translateY(-1em);
+  font-weight: bold;
+  margin-bottom:-2em;
+}
+
+
+fieldset label{
+  display: block;
+  padding:0px;
+  margin:10px 0px;
+  box-sizing: border-box;
+  transition: all 0.2s linear;
+}
+
+a{
+  text-decoration-line: none;
+  color:#7c77b9;
+  transition: all 0.2s linear;
+}
+
+a:hover{
+  color:#645be6;
+}
+
+a[href="./esqueciSenha"] label{
+  font: size 11px;
+  text-align: right;
+  padding: 0px;
+  margin: -15px 0px 20px 0px;
+  border: 0px solid transparent;
+  cursor: pointer;  
+  transition: all 0.2s linear;
+}
+
+fieldset input{
+  display: block;
+  width:100%;
+  padding:5px;
+  margin:10px 0px 20px 0px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: solid 1.5px #D3D3D3;
+  transition: all 0.2s linear;
+}
+
+input:focus, .btn:focus, a:focus label{
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 255, 0.534);
+  outline-width: 0px;
+}
+a:focus{
+  outline-width: 0px;
+}
+
+

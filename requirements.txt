@@ -1,0 +1,6 @@
+django
+celery
+kombu
+djangorestframework
+django-rest-passwordreset
+django-cors-headers
