@@ -39,9 +39,9 @@ export default class UserService{
         const url = `${API_URL}/api/user/password-reset`;
         return axios.put(url,{"email":email});
     }
-    login(username, password){
+    login(email, password){
         const url = `${API_URL}/api/login`;
-        return axios.post(url,{"username":username, "password":password});
+        return axios.post(url,{"email":email, "password":password});
     }
     logout(){
         const url = `${API_URL}/api/logout`;

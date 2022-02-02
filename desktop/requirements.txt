@@ -1,0 +1,9 @@
+django
+celery
+kombu
+djangorestframework
+django-rest-passwordreset
+django-cors-headers
+PyQt5
+PyQtWebEngine-Qt5
+PyQtWebEngine

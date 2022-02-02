@@ -27,26 +27,30 @@ class LoginComponent extends Component {
         var self = this;
         userService.login(this.login.current.value,this.password.current.value
           ).then(()=>{
-            self.props.history.push('/selectProject');
+            self.navegarPara('/select-project');
           }).catch(()=>{
             alert('There was an error! Please re-check your form.');
           });
         event.preventDefault();
       }
 
-      handleRegistrar(event)
-      {
+      navegarPara(caminho){
         let url = window.location.href;
         let pos = url.lastIndexOf('/');
-        url = url.substr(0,pos)+'/registrar';
+        url = url.substr(0,pos)+caminho;
         console.log(url);
         document.location.assign(url);
+      }
+
+      handleRegistrar(event)
+      {
+        this.navegarPara('/registrar');
         event.preventDefault();
       }
 
       render() {
         return (
-          <form>
+          <form className='dialog'>
             <fieldset>
                 <legend>Login</legend>
                 <label htmlFor="tbxLogin">Login:</label>

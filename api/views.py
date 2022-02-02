@@ -68,6 +68,37 @@ def oi(request, *args, **kwargs):
                 'message': msg,
             })
 
+@api_view(['POST'])
+def login(request, *args, **kwargs):
+    msg = ''
+    if (request.method == 'POST'):
+        print(request.data.get("email"))
+        users = User.objects.filter(email=request.data.get("email"))
+        print(users.count())
+        user = users.first()
+        print(user)
+        print(user.email)
+        print(user.password)
+        if users.count()==0 or not user.check_password(request.data.get("password")):
+            return  Response({
+                    'status': 'error',
+                    'code': status.HTTP_400_BAD_REQUEST,
+                    'message': "{} user or password not found".format(request.data.get("email")),
+                },status=status.HTTP_400_BAD_REQUEST)    
+        msg = 'login success!'
+    else:
+        return  Response({
+                'status': 'error',
+                'code': status.HTTP_400_BAD_REQUEST,
+                'message': "{} metodo nao permitido".format(request.method),
+            },status=status.HTTP_400_BAD_REQUEST)    
+    return  Response({
+                'status': 'success',
+                'code': status.HTTP_200_OK,
+                'message': msg,
+            })
+
+
 
 @api_view(['GET', 'POST'])
 def user_list(request):

@@ -41,21 +41,31 @@
 body{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 16px;
-  max-width: 460px;
   height:100%;
-  margin:auto;
+  width: max-content;
+  margin: auto;
   background-color:#eee;
 }
 
 main{
 }
 
+.screen{
+  margin:auto;
+  min-width: 780px;
+}
+
+.dialog{
+  max-width: 460px;
+  margin:auto;
+}
+
+
 .page{
   margin-top: 50px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color:#FFFFFF55;
-
 }
 
 h1{
@@ -87,9 +97,13 @@ fieldset{
 
 fieldset legend{
   text-align: center;
-  transform: translateY(-1em);
+  display: inline-block;
+  border-bottom: solid 1.5px #D3D3D3;
+  transform: translateY(-0.85em);
   font-weight: bold;
-  margin-bottom:-2em;
+  padding-bottom:0.2em;
+  margin-bottom: -2em;
+  background-color: transparent;
 }
 
 

@@ -23,9 +23,9 @@ from . import settings
 frontendurlpatterns =  static('res/js/', document_root='pages/res/js/')
 frontendurlpatterns += static('res/css/', document_root='pages/res/css/')
 frontendurlpatterns += static('/', document_root='pages/', path='index.html')
-frontendurlpatterns += static('/\w*$', document_root='pages/', path='index.html')
+#frontendurlpatterns += static('/\w*$', document_root='pages/', path='index.html')
 
 urlpatterns = [
-    #path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('api/', include(urls.urlpatterns)),
 ] + frontendurlpatterns

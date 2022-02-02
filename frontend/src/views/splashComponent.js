@@ -38,7 +38,7 @@ class SplashComponent extends Component {
 
       render() {
         return (
-          <div>
+          <div className='dialog'>
           <main>
             <p>Sistema para mediacao de micro-astros atraves de ocultacoes</p>
             <p>Sistema é dividido em 3 etapas:</p>

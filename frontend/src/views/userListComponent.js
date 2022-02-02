@@ -1,6 +1,7 @@
 import  React, { Component } from  'react';
 import  UserService  from  '../services/userService';
 
+
 const  userService  =  new  UserService();
 export default class UserListComponent  extends  Component {
 
@@ -55,7 +56,7 @@ export default class UserListComponent  extends  Component {
 
     render() {
         return (
-        <div  className="user--list">
+        <div className="screen user--list">
             <table  className="table">
                 <thead  key="thead">
                 <tr>

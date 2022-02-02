@@ -105,7 +105,7 @@ class UserComponent extends Component {
 
       render() {
         return (
-          <form onSubmit={this.handleSubmit}>
+          <form className='dialog' onSubmit={this.handleSubmit}>
             <fieldset>
                 <legend>Login</legend>
             {!this.isChangePassword() && (
