@@ -4,6 +4,7 @@ kombu
 djangorestframework
 django-rest-passwordreset
 django-cors-headers
+sora-astro
 PyQt5
 PyQtWebEngine-Qt5
 PyQtWebEngine

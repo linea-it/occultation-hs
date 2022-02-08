@@ -38,3 +38,7 @@ class ProjectSerializer(serializers.ModelSerializer):
           'segments','automaticSegments','offEarthSigma', 'radius', 'referenceCenter', 
           'description','createdAt')
        
+class ValidadeBodySerializer(serializers.Serializer):
+    bodyname = serializers.CharField(required=True)
+    elementarname = serializers.CharField(required=False)
+    elementarcontent = serializers.CharField(required=False)

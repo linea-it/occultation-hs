@@ -15,6 +15,6 @@ urlpatterns = [
     re_path(r'^user$', views.user_list),
     re_path(r'^user/(?P<id>[0-9]+)$', views.user_detail),
     re_path(r'^project$',views.project_list),
-    re_path(r'^project/(?P<id>[0-9]+)$',views.project_detail)
-
+    re_path(r'^project/(?P<id>[0-9]+)$',views.project_detail),
+    re_path(r'^validate-body$',views.validate_body)
 ]

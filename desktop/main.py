@@ -36,7 +36,7 @@ def executarBrowser(application):
     Timer(1,lambda: UIApp("http://127.0.0.1:8000/",application)).start()
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sora.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sora-gui.settings")
     application = get_wsgi_application()
 
     # start sub-thread to open the browser.

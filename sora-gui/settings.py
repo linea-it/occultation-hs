@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-ROOT_URLCONF = 'sora.urls'
+ROOT_URLCONF = 'sora-gui.urls'
 
 TEMPLATES = [
     {
@@ -75,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'sora.wsgi.application'
+WSGI_APPLICATION = 'sora-gui.wsgi.application'
 
 
 # Database

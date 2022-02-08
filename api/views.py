@@ -11,7 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import *
 from .serializers import *
-
+from .sora_facade import *
 class ChangePasswordView(generics.UpdateAPIView):
     serializer_class = UserChangePasswordSerializer
     model = User
@@ -243,3 +243,22 @@ def project_detail(request, id):
         project.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)            
 
+
+
+@api_view(['POST'])
+def validate_body(request):
+    if request.method == 'POST':
+        serializer = ValidadeBodySerializer(data=request.data)
+        if serializer.is_valid():
+            object = serializer.validated_data
+            p = Prediction()
+            if 'elementarname' in object and object.get('elementarname'):
+                if not p.validateBody(object.get('bodyname'),object.get('elementarname')):
+                    return Response({"error": [p.getLastError()]}, status=status.HTTP_400_BAD_REQUEST)
+            elif 'elementarcontent' in object and object.get('elementarcontent'):
+                if not p.validateBodyZipEphem(object.get('bodyname'),object.get('elementarcontent')):
+                    return Response({"error": [p.getLastError()]}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                return Response({"error": ["elementarcontent and elementarname not found or are emptys."]}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

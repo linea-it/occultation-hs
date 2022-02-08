@@ -4,3 +4,4 @@ kombu
 djangorestframework
 django-rest-passwordreset
 django-cors-headers
+sora-astro
