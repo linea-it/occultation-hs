@@ -14,7 +14,11 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+try:
+    # PyInstaller creates a temp folder and stores path in _MEIPASS
+    BASE_DIR = os.environ.get('_MEIPASS',Path(__file__).resolve().parent.parent)
+except Exception:
+    BASE_DIR = os.environ.get('SORA_PATH', os.path.abspath("."))
 
 
 # Quick-start development settings - unsuitable for production
@@ -84,7 +88,7 @@ WSGI_APPLICATION = 'sora-gui.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': Path(BASE_DIR).joinpath('db.sqlite3'),
     }
 }
 print('data base location:{}'.format(DATABASES['default']['NAME']))
@@ -125,10 +129,10 @@ USE_TZ = True
 
 print(BASE_DIR)
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT = Path(BASE_DIR).joinpath('static')
 print(STATIC_ROOT)
 MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = Path(BASE_DIR).joinpath('media')
 print(MEDIA_URL)
 
 # Default primary key field type

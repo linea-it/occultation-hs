@@ -39,7 +39,7 @@ class  ProjectSelectComponent  extends  Component {
     }
 
     handleNovoProjeto(event){
-        this.navegarPara('/new-project')
+        this.navegarPara('/project')
         event.preventDefault();
     }
     render() {

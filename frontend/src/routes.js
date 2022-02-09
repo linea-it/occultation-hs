@@ -6,8 +6,7 @@ import UserListComponent from "./views/userListComponent";
 import ProjectSelectComponent from "./views/projectSelectComponent";
 import LoginComponent from "./views/loginComponent";
 import SplashComponent from "./views/splashComponent";
-
-
+import NewProjectComponet from "./views/project/project";
 
 const SoraRoutes = () => {
    return(
@@ -22,6 +21,7 @@ const SoraRoutes = () => {
                 <Route path={"/aread"} element={<ProjectSelectComponent/>}/> 
                 <Route path={"/user"} element={<UserListComponent/>}/>
                 <Route exact path="/user/:id" element={<UserComponent/>}/>
+                <Route path={"/project"} element={<NewProjectComponet/>}/>            
             </Routes>
         </BrowserRouter>
    )
