@@ -24,6 +24,9 @@ class UserComponent extends Component {
         this.newPassword = createRef('');
         this.oldPassword = createRef('');
         this.confirmNewPassword = createRef('');
+        this.alertMsg = createRef('');
+        this.showFriendlyMsg = false;
+
       }
 
       componentDidMount(){
@@ -36,6 +39,16 @@ class UserComponent extends Component {
         }
       }
 
+      showAlert(msg){
+        this.alertMsg = msg;
+          this.showMsg = true;
+          this.forceUpdate();
+          setTimeout(() =>{
+            this.showMsg = false;
+            this.forceUpdate();
+          }, 5000);
+      }
+
       handleCreate(){
         userService.create(
           {
@@ -45,7 +58,8 @@ class UserComponent extends Component {
             "confirm_password": this.confirmPassword.current.value
         }
         ).then((result)=>{
-          alert("User created!");
+          console.log(result);
+          this.showAlert("The user was created!");
         }).catch(()=>{
           alert('There was an error! Please re-check your form.');
         });
@@ -59,7 +73,7 @@ class UserComponent extends Component {
         }
         ).then((result)=>{
           console.log(result);
-          alert("user updated!");
+          this.showAlert("The user was updated!");
         }).catch(()=>{
           alert('There was an error! Please re-check your form.');
         });
@@ -70,7 +84,7 @@ class UserComponent extends Component {
             this.oldPassword.current.value,this.newPassword.current.value, this.confirmNewpassword.current.value
         ).then((result)=>{
           console.log(result);
-          alert("Password updated!");
+          this.showAlert("The Password was updated!");
         }).catch(()=>{
           alert('There was an error! Please re-check your form.');
         });
@@ -134,7 +148,10 @@ class UserComponent extends Component {
                     <label>Confirm New Password:</label>
                     <input className="form-control" type="password" ref={this.confirmNewPassword}/>
                 </div>                     
-              )}         
+              )}
+              {this.showMsg && (
+                  <label className='friendlyMsg' >{this.alertMsg}"</label>
+                ) }         
               <input className="btn btn-primary" type="submit" value="Submit" />
           </fieldset>  
           </form>
