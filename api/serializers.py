@@ -40,5 +40,5 @@ class ProjectSerializer(serializers.ModelSerializer):
        
 class ValidadeBodySerializer(serializers.Serializer):
     bodyname = serializers.CharField(required=True)
-    elementarname = serializers.CharField(required=False)
-    elementarcontent = serializers.CharField(required=False)
+    ephemname = serializers.CharField(required=False)
+    ephemcontent = serializers.CharField(required=False)

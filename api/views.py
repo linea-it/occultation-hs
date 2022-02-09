@@ -252,13 +252,13 @@ def validate_body(request):
         if serializer.is_valid():
             object = serializer.validated_data
             p = Prediction()
-            if 'elementarname' in object and object.get('elementarname'):
-                if not p.validateBody(object.get('bodyname'),object.get('elementarname')):
+            if 'ephemname' in object and object.get('ephemname'):
+                if not p.validateBody(object.get('bodyname'),object.get('ephemname')):
                     return Response({"error": [p.getLastError()]}, status=status.HTTP_400_BAD_REQUEST)
-            elif 'elementarcontent' in object and object.get('elementarcontent'):
-                if not p.validateBodyZipEphem(object.get('bodyname'),object.get('elementarcontent')):
+            elif 'ephemcontent' in object and object.get('ephemcontent'):
+                if not p.validateBodyZipEphem(object.get('bodyname'),object.get('ephemcontent')):
                     return Response({"error": [p.getLastError()]}, status=status.HTTP_400_BAD_REQUEST)
             else:
-                return Response({"error": ["elementarcontent and elementarname not found or are emptys."]}, status=status.HTTP_400_BAD_REQUEST)
+                return Response({"error": ["ephemcontent and ephemname not found or are emptys."]}, status=status.HTTP_400_BAD_REQUEST)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
