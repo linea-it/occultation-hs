@@ -1,4 +1,18 @@
+import axios from "axios";
+import { accessToken }  from "../contexts/auth";
 
-const API_URL = 'http://localhost:8000';
+const api = axios.create({
+  baseURL: 'http://localhost:8000/api'
+});
 
-export default API_URL; 
+api.interceptors.request.use(async config => {
+  const token = accessToken();
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+    config.headers['Content-Type'] = 'application/json';
+  }
+  return config;
+});
+
+export default api;
+

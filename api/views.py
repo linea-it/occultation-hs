@@ -1,17 +1,21 @@
 from django.shortcuts import render
 from django.db.models import Q
 from django.contrib.auth.models import User
-from rest_framework.decorators import api_view
+from rest_framework.authtoken.models import Token
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework import status
 from rest_framework import generics
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated   
+from rest_framework.permissions import IsAuthenticated, AllowAny   
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import *
 from .serializers import *
 from .sora_facade import *
+from rest_framework_simplejwt.tokens import RefreshToken, AccessToken
+
+
 class ChangePasswordView(generics.UpdateAPIView):
     serializer_class = UserChangePasswordSerializer
     model = User
@@ -47,8 +51,8 @@ class ChangePasswordView(generics.UpdateAPIView):
 
 
 @api_view(['GET', 'POST', 'DELETE'])
+@permission_classes([AllowAny])
 def oi(request, *args, **kwargs):
-    print(request)
     msg = ''
     if (request.method == 'DELETE'):
         msg = 'oi deletado!'
@@ -68,17 +72,14 @@ def oi(request, *args, **kwargs):
                 'message': msg,
             })
 
+        
 @api_view(['POST'])
+@permission_classes([AllowAny])
 def login(request, *args, **kwargs):
     msg = ''
     if (request.method == 'POST'):
-        print(request.data.get("email"))
         users = User.objects.filter(email=request.data.get("email"))
-        print(users.count())
         user = users.first()
-        print(user)
-        print(user.email)
-        print(user.password)
         if users.count()==0 or not user.check_password(request.data.get("password")):
             return  Response({
                     'status': 'error',
@@ -91,16 +92,55 @@ def login(request, *args, **kwargs):
                 'status': 'error',
                 'code': status.HTTP_400_BAD_REQUEST,
                 'message': "{} metodo nao permitido".format(request.method),
-            },status=status.HTTP_400_BAD_REQUEST)    
+            },status=status.HTTP_400_BAD_REQUEST) 
+    refresh = RefreshToken.for_user(user)   
     return  Response({
+                'name':user.username,
+                'email':user.email,
+                'access-token':str(refresh.access_token),
+                'refresh-token':str(refresh),
                 'status': 'success',
                 'code': status.HTTP_200_OK,
                 'message': msg,
             })
 
-
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def refresh(request, *args, **kwargs):
+    msg = ''
+    if (request.method == 'POST'):
+        token = RefreshToken(request.data.get("refresh-token"))
+        user_id=token.payload["user_id"]
+        user = User.objects.get(id=user_id)
+        try:
+            token.verify()
+        except Exception as error:
+            return  Response({
+                    'status': 'error',
+                    'code': status.HTTP_400_BAD_REQUEST,
+                    'message': "refresh token is invalid!",
+                    'error': str(error),
+                },status=status.HTTP_400_BAD_REQUEST)    
+        msg = 'login success!'
+    else:
+        return  Response({
+                'status': 'error',
+                'code': status.HTTP_400_BAD_REQUEST,
+                'message': "{} metodo nao permitido".format(request.method),
+            },status=status.HTTP_400_BAD_REQUEST) 
+    refresh = RefreshToken.for_user(user)   
+    return  Response({
+                'name':user.username,
+                'email':user.email,
+                'access-token':str(refresh.access_token),
+                'refresh-token':str(refresh),
+                'status': 'success',
+                'code': status.HTTP_200_OK,
+                'message': msg,
+            })
 
 @api_view(['GET', 'POST'])
+@permission_classes([AllowAny])
 def user_list(request):
     """
  List  users, or create a new user.
@@ -144,6 +184,9 @@ def user_list(request):
                 user.set_password(object.get('password'))
                 user.save()
                 serializer = UserListSerializer(user)
+                token,created=Token.objects.get_or_create(user=user)
+                print(token)
+                print(created)
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     except Exception as error:
@@ -185,6 +228,7 @@ def user_detail(request, id):
         
 
 @api_view(['GET', 'POST'])
+@permission_classes([AllowAny])
 def project_list(request):
     """
  List  projects, or create a new project.
@@ -212,8 +256,9 @@ def project_list(request):
         return Response({'data': serializer.data , 'count': paginator.count, 'numpages' : paginator.num_pages, 'nextlink': '/api/projects/?page=' + str(nextPage), 'prevlink': '/api/projects/?page=' + str(previousPage)})
 
     elif request.method == 'POST':
-        serializer = ProjectSerializer(data=request.data)
-        if serializer.is_valid():
+        user = request.user if request.user.is_authenticated else User.objects.all()[0]
+        serializer = ProjectSerializer(user=user, data=request.data)
+        if serializer.is_valid(raise_exception=False):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

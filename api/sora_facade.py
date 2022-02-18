@@ -6,6 +6,8 @@ import os
 import io
 import base64
 from zipfile import ZipFile
+import time
+from celery import shared_task
 
 class Prediction:
     _lastError=''
@@ -19,6 +21,16 @@ class Prediction:
 
     def getLastError(self):
         return self._lastError
+
+    @shared_task(queue='default')
+    def slowTestTask(self):
+        print('Started task, processing...')
+        time.sleep(120)
+        print('Finished Task')
+        return True
+    
+    def criarTaskTeste(self):
+        self.slowTestTask.delay()
 
     def validateBody(self, bodyName, ephemName='horizons'):
         try:

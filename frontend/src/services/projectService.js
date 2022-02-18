@@ -1,34 +1,46 @@
-import axios from 'axios';
-import API_URL from './baseService';
+import api from './baseService';
 
-export default class ProjectService{
-
-    constructor(){}
+export default class ProjectService {
 
     list() {
-        const url = `${API_URL}/api/project`;
-        return axios.get(url).then(response => response.data);
+        return api.get(`project`).then(response => response.data);
     }
 
-    getByURL(link){
-        const url = `${API_URL}${link}`;
-        return axios.get(url).then(response => response.data);
+    getByURL(link) {
+        return api.get(`${link}`).then(response => response.data);
     }
 
     get(id) {
-        const url = `${API_URL}/api/project/${id}`;
-        return axios.get(url).then(response => response.data);
+        return api.get(`project/${id}`).then(response => response.data);
     }
-    delete(id){
-        const url = `${API_URL}/api/project/${id}`;
-        return axios.delete(url);
+
+    delete(id) {
+        return api.delete(`project/${id}`);
     }
-    create(project){
-        const url = `${API_URL}/api/project`;
-        return axios.post(url,project);
+
+    create(project) {
+        return api.post(`project`, JSON.stringify(project));
     }
-    update(project){
-        const url = `${API_URL}/api/project/${project.id}`;
-        return axios.put(url,project);
+
+    update(project) {
+        return api.put(`project/${project.id}`, project);
+    }
+
+    validateBody(bodyname, elementar, typeElementar) {
+        console.log("passei");
+
+        let info = {
+            "bodyname": bodyname,
+            "ephemcontent": elementar
+        }
+
+        if (typeElementar === "Name") {
+            info = {
+                "bodyname": bodyname,
+                "ephemname": elementar
+            }
+        }
+
+        return api.post(`validate-body`, info);
     }
 }

@@ -1,0 +1,130 @@
+.container {
+  padding: 60px;
+}
+
+.main-card {
+  padding: 5%;
+}
+
+.title {
+  font-size: 1.4rem;
+  text-align: center;
+  display: block;
+}
+
+.td {
+  width: 150px;
+}
+
+.border-btn {
+  border: 1px solid #c9c9c9;
+}
+
+.dist {
+  margin-left: 15px;
+}
+
+.tamanho {
+  width: 105px !important;
+}
+
+.conf-textarea {
+  /* min-height: 200px;
+  max-height: 200px;
+  overflow-y: auto; */
+  min-height: 400px;
+  height: 100%;
+  width: 100%;
+}
+
+/* Stepper */
+.stepper-wrapper {
+  margin-top: -1em;
+  margin-bottom: 3em;
+  display: flex;
+  justify-content: space-between;
+}
+.stepper-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.stepper-item::before {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  top: 20px;
+  left: -50%;
+  z-index: 2;
+}
+
+.stepper-item::after {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: 2;
+}
+
+.stepper-item .step-counter {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ccc;
+  margin-bottom: 6px;
+}
+
+.stepper-item.active .step-counter {
+  font-weight: bold;
+  background-color: #0e5709;
+  color: #ffffff;
+}
+
+.stepper-item.completed .step-counter {
+  background-color: #4bb543;
+}
+
+.stepper-item.completed::after {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #4bb543;
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: 3;
+}
+
+.stepper-item:first-child::before {
+  content: none;
+}
+.stepper-item:last-child::after {
+  content: none;
+}
+/* Stepper end */
+
+.bodyname {
+  padding-top: 0 !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+.summary {
+  font-family: Consolas, "Lucida Console", "DejaVu Sans Mono", monospace;
+  line-height: 1;
+}

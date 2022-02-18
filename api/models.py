@@ -4,22 +4,46 @@ from django.urls import reverse
 from django_rest_passwordreset.signals import reset_password_token_created
 from django.core.mail import send_mail  
 from django.utils.translation import gettext_lazy as _
-
+from django.contrib.auth.models import AbstractUser,PermissionsMixin
+from .managers import UserManager
 
 @receiver(reset_password_token_created)
 def password_reset_token_created(sender, instance, reset_password_token, *args, **kwargs):
 
-    email_plaintext_message = "{}?token={}".format(reverse('password_reset:reset-password-request'), reset_password_token.key)
-
+    user = User.objects.filter(email=reset_password_token.user.email)[0]
+    email_plaintext_message = "Dear {},\n\n\tYour code validation is {}\n\natt,\n\tSora Support\n".format(user.username, reset_password_token.key)
     send_mail(
         "Password Reset for {title}".format(title="SORA Desktop Version"),
         email_plaintext_message,
-        "noreply@somehost.local",
+        "sora.gui2022@gmail.com",
         [reset_password_token.user.email]
     )
 
+
+
+class User(AbstractUser, PermissionsMixin):
+    email = models.EmailField(verbose_name="email", max_length=60, unique=True, blank=True, null=True, default=None)
+    username= models.CharField(max_length=30,unique=True, blank=True, null=True)
+    is_admin = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
+
+    USERNAME_FIELD = 'email'
+    EMAIL_FIELD = 'email'
+    REQUIRED_FIELDS = ['username', 'password']
+    
+    objects = UserManager()
+    
+    def __str__(self):
+        return str(self.email)
+    
+    def get_full_name(self): return self.username
+
+
 class Project(models.Model):
     id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField("Project name", max_length=255)
     initialDateTime = models.DateTimeField("Initial Period")
     finalDateTime = models.DateTimeField("Initial Period")
@@ -46,7 +70,8 @@ class Project(models.Model):
 
 class Body(models.Model):
     id = models.AutoField(primary_key=True)
-    idProject = models.ForeignKey(Project, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    bodyName = models.CharField("Body Name", max_length=50)
     class EphemerisType(models.TextChoices):
         JPL_Horizons = 'JPL', _('JPL/Horizons')
         CustomBSP = 'BSP', _('Custom BSP Files')
