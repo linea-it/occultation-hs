@@ -3,24 +3,17 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Occultation Interface's documentation!
+Welcome to OccultIN Project's user documentation!
 =================================================
 
+A basic introduction here.
+
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
-   about
-   introduction
-   installation
-   projects
-   predictions
-   lightcurves
-   shapes
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
+   pages/about_the_project
+   pages/stellar_occultation_overview
+   pages/getting_started
+   pages/interface_documentation
+   pages/tutorial

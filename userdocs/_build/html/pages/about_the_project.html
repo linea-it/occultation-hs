@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The OccultIN Project &mdash; OccultIN Project Update documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Getting Started" href="getting_started.html" />
+    <link rel="prev" title="Welcome to OccultIN Project documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> OccultIN Project
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The OccultIN Project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-team">The Team</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OccultIN Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>The OccultIN Project</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/pages/about_the_project.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="the-occultin-project">
+<span id="sec-the-occultin-project"></span><h1>The OccultIN Project<a class="headerlink" href="#the-occultin-project" title="Permalink to this headline"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<p>The Occultation Interface (OccultIN) is a science community effort to enable Solar System occultation science in an easy and innovative way and is powered by Kickstarter grants through the program “Preparing for AStrophysics with LSST”.</p>
+<p>The Vera Rubin Observatory with its Legacy Survey of Space and Time (LSST) will revolutionize Solar System astrophysics with its 10-year uninterrupted monitoring of the southern sky. Over this time the number of known Solar System objects will grow 10 times and reveal a much finer view of the structure of our neighborhood. However, most of the new discoveries will lie in the range of very small objects not very much suitable for being studied by methods such as direct observations. Here, stellar occultations by small Solar System bodies will play a huge part in understanding this new world of discoveries.</p>
+<p>Stellar occultations are a powerful observational technique for the determination of sizes and shapes of small bodies in the Solar System with kilometric accuracy. In addition, an investigation of the neighborhoods of the occulting body is also possible and may lead to the discovery and analysis of rings, jets, satellites, and atmospheres as tenous as a few nano bars. One of the interesting features of a stellar occultation is that it does not matter how faint the target object is, it is enough to record the flux variation from the star it occults as its light is temporarily blocked by the small body. Therefore, high angular resolution information can be obtained for the faintest objects if the occultation event involves a bright enough star (visual magnitude ~16).</p>
+<p>Since stellar occultations are within the class of target of opportunity science, only the most valuable cases are usually observed by big consortium telescopes. Up to this date, the majority of data provided by such events that make it into the scientific published work come from worldwide collaboration with non-professional Astronomers. Therefore, providing access to tools that facilitate predictions and analysis of occultation events to the community overall is a major goal of this project.</p>
+<p>Many steps are involved in making a stellar occultation a viable science case: predicting the event, observing the event, and analyzing the observations. The OccultIN interface allows anyone interested in predicting and processing observed events in a single and very intuitive user interface. The interface itself is organized in a structure of Projects. Each project will contain when they exist, the predictions for the object or set of objects of interest. Similarly, each prediction that produced observational data will make it possible to analyze the collected light curves (single or multiple) associated with the event and derive the projected two-dimensional shape of the body in the sky along with some of its physical properties.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The OccultIN interface does not extract light curves from FITS, images, or video files. It rather uses light curves as an input to determine the occultation event instants and from there fits the sky projected ellipse to determine the occulting body’s physical properties.</p>
+</div>
+<p>The OccultIN backend is developed on the rigorous python-based library SORA (Stellar Occultation Reduction Analysis) designed specifically to create pipelines to predict and analyze stellar occultations by small bodies.</p>
+</section>
+<section id="the-team">
+<h2>The Team<a class="headerlink" href="#the-team" title="Permalink to this headline"></a></h2>
+<p>Describe here the team…</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to OccultIN Project documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="getting_started.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Update.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
