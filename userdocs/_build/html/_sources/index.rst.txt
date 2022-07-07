@@ -10,10 +10,24 @@ A basic introduction here.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
+   :caption: About
 
-   pages/about_the_project
-   pages/stellar_occultation_overview
-   pages/getting_started
-   pages/interface_documentation
-   pages/tutorial
+   pages/about/about_the_project
+   pages/about/stellar_occultation_overview
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: The User Interface
+
+   pages/ui/getting_started
+   pages/ui/projects
+   pages/ui/predictions
+   pages/ui/light_curve_analysis
+   pages/ui/shape_analysis
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Tutorials
+
+   pages/tutorial/tutorial
