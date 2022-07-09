@@ -17,7 +17,7 @@ extracted execute ``AsyncQueueTasks.exe``.
 Suported Operating Systems
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 The interface was developed and tested for Windows 10 and 11 operating systems. It has also been
-successfully tested in Ubuntu Linux operating systems through Wine [version].
+successfully tested in Ubuntu Linux operating systems through wine-7.5 (Staging).
 
 
 Known Possible Issues
