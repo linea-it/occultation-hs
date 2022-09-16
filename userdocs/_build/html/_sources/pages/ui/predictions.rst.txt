@@ -13,7 +13,7 @@ The first step when initializing a new project consists of naming and describing
 Solar System Object
 ^^^^^^^^^^^^^^^^^^^^
 
-One or multiple objects can be added as targets for occultation predictions in each project.  The field “Object Name” needs to receive a valid identifier for their database - the official name of the body, the spkid, or the designated number for the query are all options to be provided. Once you provide a valid object's identifier you can choose the source to retrieve the target's ephemeris: online or local. If you choose the online method a query is submitted to the JPL Small-Body Database.
+One or multiple objects can be added as targets for occultation predictions in each project.  The field “Object Name” needs to receive a valid identifier for their database - the official name of the body, the spkid, or the designated number for the query are all options to be provided and can all be found on the `Small Bodies Database <https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/>`_ from the Jet Propulsion Lab (JPL). Once you provide a valid object's identifier you can choose the source to retrieve the target's ephemeris: online or local. If you choose the online method a query is submitted to the JPL Small-Body Database.
 
 For the body ephemeris, it is suggested to use the 'Horizons/JPL' query, as it is the default in the application. It may be necessary to use BSP files if the object is not included in the database. Again, be aware of the format used and that this is more challenging if you have no experience with BSP files or the application.
 
@@ -24,7 +24,7 @@ Time Range
 
 The next step is adding a time interval to the prediction, with start and end times. The time inserted, if written manually, should have the format “yyyy-mm-dd” for the date and “hour: minute” for the hour. Note that the format considers times from 00:00 to 23:59, not AM and PM. There is also a display calendar to pick dates from.
 
-Beyond that, this page also requires mandatory Prediction Parameters. The “Star Magnitude Limit” asks for the maximum star magnitude to lookup for prediction (default is 10). The “Search Step” is the step in seconds to calculate the predictions (default is 60) and the “Segment (divs)” is the number of divisions on the stellar catalog to perform the search (default is 1). Increasing this number is advised if large amounts of data are expected to be retrieved.
+Beyond that, this page also requires mandatory Prediction Parameters. The “Star Magnitude Limit” asks for the maximum star magnitude to look up for prediction (default is 10). The “Search Step” is the step in seconds to calculate the predictions (default is 60) and the “Segment (divs)” is the number of divisions on the stellar catalog to perform the search (default is 1). Increasing this number is advised if large amounts of data are expected to be retrieved.
 
 Extra Information
 ^^^^^^^^^^^^^^^^^^^^
