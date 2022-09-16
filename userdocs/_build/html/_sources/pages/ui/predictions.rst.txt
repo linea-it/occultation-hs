@@ -43,8 +43,6 @@ This step summarizes all the information provided to be checked before creating 
 Managing and Exploring occultations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Managing & Exploring Occultations
-
 It is necessary to note that it may take a while for the predictions to be ready as searches may vary in time consumed. “Jobs'' opens a modal where processes executed, canceled and in execution are listed. At first, only the prediction will be in the listing.
 
 If the job is still being executed, you will view its status as “running”. If everything runs smoothly, the status will be “finished”; if it doesn't, it'll be an “error”. For the latter, there is a “try again” option. It is not unusual for the catalog provider to restrain access when many searches are performed so the error may be due to that restriction.

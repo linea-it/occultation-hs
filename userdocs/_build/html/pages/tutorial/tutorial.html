@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; OccultIn Project Update documentation</title>
+  <title>Tutorial &mdash; OccultIn Project Update documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Shape Analysis" href="../ui/shape_analysis.html" /> 
+    <link rel="prev" title="Ellipse Fit determination" href="../ui/shape_analysis.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,7 +39,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">About</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../about/about_the_project.html">The OccultIN Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/about_the_project.html">The OccultIn Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about/stellar_occultation_overview.html">A Stellar Occultation Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">The User Interface</span></p>
@@ -48,7 +48,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../ui/projects.html">Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ui/predictions.html">Occultation Predictions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ui/light_curve_analysis.html">Light Curve Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ui/shape_analysis.html">Shape Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/shape_analysis.html">Ellipse Fit determination</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#initializing-an-project">Initializing an Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#light-curves-star">Light Curves &amp; Star</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#observers">Observers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ellipse-fitting">Ellipse fitting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#chords">Chords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fitting-the-ellipse">Fitting the ellipse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filter">Filter</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -65,7 +80,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>&lt;no title&gt;</li>
+      <li>Tutorial</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/pages/tutorial/tutorial.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -75,12 +90,69 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <span class="target" id="sec-tutorial"></span>
+  <section id="tutorial">
+<span id="sec-tutorial"></span><h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this heading"></a></h1>
+<p>Let’s do a full project as a way to visualize the processes in the interface. Assuming downloading and executing the interface went ok, we open the ‘Sign Up’ page and create an account. The verification key will arrive shortly so we can log in.</p>
+<p>Logged in, we may create our first project.</p>
+<section id="initializing-an-project">
+<h2>Initializing an Project<a class="headerlink" href="#initializing-an-project" title="Permalink to this heading"></a></h2>
+<p>After naming the project, we need to add a body. Its identification can be its name, spkid or designation number to query the SBDB.  For example, if we were to use ‘Paris’ as a body we could search for ‘Paris’, ‘3317 Paris’, ‘1984 KF’ or ‘2003317’. This information can be found on the Small Bodies Database.</p>
+<p>IMAGE FROM ADDING BODY</p>
+<p>There is also an option to add the files of ephemeris of bodies we are interested in. This case won’t be discussed in the tutorial since it is only recommended for experienced users. The result should be the same.</p>
+<p>Note finally that if you’re interested in many bodies with distinct characteristics you may want to create separate projects. When we set the time window for the prediction, we set it for all bodies, which may cause inconveniences if bodies have different density of stars in their fields.</p>
+<p>Knowing our time interval of interest for the prediction we set the ‘Start Time’ and ‘End Time’ in the next step, ‘Prediction Parameters’. The star magnitude Limit is basically how faint of a star you want to search in the catalog for it to be considered an event when occulted. Usually, stars fainter than 16 ( &gt;16 apparent magnitudes) aren’t ideal. The catalog of which the interface searches the stars is the GAIA eDR3 and for most cases should be kept that way.</p>
+<p>IMAGE FROM PREDICTION PARAMETERS</p>
+<p>We can also set the granularity of the search in ‘Search Steps’ and the number of segments that the search should be divided into in ‘Segments’. This division is due to data flow in long searches. Dividing decreases errors for long queries.</p>
+<p>Of course ephemeris can be imprecise. If you are interested in a body with low precision in its position you may want to set  the Off-Earth Sigma for the shadows predicted (note that this may be wrong) to be projected close to Earth. It basically uses (Radius + Ephemeris Error * Sigma) for the search instead of Radius.</p>
+<p>IMAGE FROM OTHER INFO</p>
+<p>We’re finally into the interface with our first project! We can now see a hierarchy tree in the left panel with the project, bodies and occultations of each. In the top panel there is also an Jobs modal that shows processes occuring, done and waiting. There you can manage your tasks.</p>
+<p>IMAGE FROM MAIN PAGE WITH TREE</p>
+</section>
+<section id="light-curves-star">
+<h2>Light Curves &amp; Star<a class="headerlink" href="#light-curves-star" title="Permalink to this heading"></a></h2>
+<p>Let’s suppose we have data for one of the body’s occultations. We must add here that the OccultIn does not extract light curves from FITS, images, or video files. These processes are a whole project on their own and have their own other tools that we won’t be discussing.</p>
+<p>We can now add our light curve. For this we need a file that contains, at least, a column of time and a column of light flux. We can also have an error column.</p>
+<p>Before properly adding a Light curve we set our Star on the same page, the Light Curve section.</p>
+<p>IMAGE FROM STAR</p>
+<p>Most properties of the star are already set as we have it on the catalog. For most applications Star distance and Proper Motion Correction should be checked. It is important that we calculate its apparent diameter (at the end of the modal). For that we have a few methods, nominally Kervella and Van Belle. For both, most data is set when we create the project.</p>
+<p>Now, to the Light Curve. This process consists of choosing a file and defining the columns of interest for each of the parameters. There is not much more to it in this step. Remember to check the time format used.</p>
+<p>IMAGE ADDING LIGHT CURVE</p>
+</section>
+<section id="observers">
+<h2>Observers<a class="headerlink" href="#observers" title="Permalink to this heading"></a></h2>
+<p>For each light curve we have, of course, an observer that captured the data. It is now time to add this information. In the observer page we can set their information, create a new observer and add their coordinates and altitude. For the coordinate, a lot of formats are accepted but note that North and East are considered positive. In doubt, consider using  ∓12 34 56.78 (degrees, minutes and seconds) as the format.</p>
+<p>IMAGE FROM ADDING OBSERVER</p>
+</section>
+<section id="ellipse-fitting">
+<h2>Ellipse fitting<a class="headerlink" href="#ellipse-fitting" title="Permalink to this heading"></a></h2>
+<section id="chords">
+<h3>Chords<a class="headerlink" href="#chords" title="Permalink to this heading"></a></h3>
+<p>The first step into fitting the Ellipse is setting the chords that will set its parameters. A chord is nothing more than a light curve projected into the sky plane. For the projection we need to associate the light curve with its observer, in this way, the geometry is set. There may be a shift in time needed if the observation has some note to it. If nothing is abnormal you can ignore this field. For organization purposes you can set the chord color from the hue.</p>
+<p>We can now plot the ellipse.</p>
+<p>IMAGE FROM THE CHORD ADDING and PLOT CHORDS</p>
+</section>
+<section id="fitting-the-ellipse">
+<h3>Fitting the ellipse<a class="headerlink" href="#fitting-the-ellipse" title="Permalink to this heading"></a></h3>
+<p>Now, with all the chords in place we can use some mathematical methods to fit an ellipse to its extremes. Clicking on the fitting you’ll be greeted with a lot of fields. To describe an ellipse it needs 5 parameters. Those are in this coordinate F center, G center, Equatorial radius, Oblateness and Position Angle. For each of those we need an initial guess as the algorithm will try to converge on the best fit parameters. Note that a bad guess parameter can lead to basically divergence.</p>
+<p>It is also interesting to set the shadow solutions for ellipses within 3-sigma.</p>
+<p>IMAGE FROM FIT and FITTED ELLIPSE</p>
+<p>We have also generated some chi squared plots for each parameter.</p>
+<p>IMAGE FROM CHI SQUARE PLOTS</p>
+</section>
+<section id="filter">
+<h3>Filter<a class="headerlink" href="#filter" title="Permalink to this heading"></a></h3>
+<p>If you have an negative chord, that is, an observation that didn’t detect an occultation, you may set it as a boundary condition for your solutions. This is done by setting the chord as negative in the page of Light Curve and clicking on the filter method.</p>
+<p>IMAGE FROM SET FILTER</p>
+<p>If all went well we can now export the data from the results.</p>
+</section>
+</section>
+</section>
+
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../ui/shape_analysis.html" class="btn btn-neutral float-left" title="Shape Analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../ui/shape_analysis.html" class="btn btn-neutral float-left" title="Ellipse Fit determination" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
