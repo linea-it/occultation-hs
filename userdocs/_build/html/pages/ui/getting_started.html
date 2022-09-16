@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Getting Started &mdash; OccultIN Project Update documentation</title>
+  <title>Getting Started &mdash; OccultIn Project Update documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -27,7 +28,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> OccultIN Project
+            <a href="../../index.html" class="icon icon-home"> OccultIn Project
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -45,22 +46,25 @@
 <p class="caption" role="heading"><span class="caption-text">The User Interface</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#install-occultin">Install OccultIN</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#suported-operating-systems">Suported Operating Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-occultin">Install OccultIn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#supported-operating-systems">Supported Operating Systems</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#known-possible-issues">Known Possible Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#old-versions-cached-data">Old versions cached data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#path-environment-variable">PATH Environment Variable</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#running-occultin">Running OccultIn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#creating-a-user-account">Creating a User Account</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="projects.html">Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="predictions.html">Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="predictions.html">Occultation Predictions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="light_curve_analysis.html">Light Curve Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shape_analysis.html">Shape Analysis</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial.html">Tutorial</a></li>
 </ul>
 
         </div>
@@ -69,7 +73,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">OccultIN Project</a>
+          <a href="../../index.html">OccultIn Project</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -88,29 +92,48 @@
            <div itemprop="articleBody">
              
   <section id="getting-started">
-<span id="sec-getting-started"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h1>
+<span id="sec-getting-started"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
 <section id="install-occultin">
-<h2>Install OccultIN<a class="headerlink" href="#install-occultin" title="Permalink to this headline"></a></h2>
-<p>The OccultIN Software is available to download via <a class="reference external" href="https://getoccultin.org">https://getoccultin.org</a>.</p>
-<p>Save and extract the compressed file in the desired location and extract its contents. Once
-extracted execute <code class="docutils literal notranslate"><span class="pre">AsyncQueueTasks.exe</span></code>.</p>
-<section id="suported-operating-systems">
-<h3>Suported Operating Systems<a class="headerlink" href="#suported-operating-systems" title="Permalink to this headline"></a></h3>
-<p>The interface was developed and tested for Windows 10 and 11 operating systems. It has also been
-successfully tested in Ubuntu Linux operating systems through wine-7.5 (Staging).</p>
+<h2>Install OccultIn<a class="headerlink" href="#install-occultin" title="Permalink to this heading"></a></h2>
+<p>The OccultIN Software is available to download via
+<a class="reference external" href="https://www.11tech.com.br/SORA/Install-Occultin-Windows-0.97.exe">https://www.11tech.com.br/SORA/Install-Occultin-Windows-0.97.exe</a> for a
+Windows operational system and in <a class="reference external" href="https://www.11tech.com.br/SORA/install-occultin-linux.sh">https://www.11tech.com.br/SORA/install-occultin-linux.sh</a>
+for a Linux operational system. Save and execute the installation in your
+system. In windows you will have an executable file. In Linux you must
+run the shell file.</p>
+<section id="supported-operating-systems">
+<h3>Supported Operating Systems<a class="headerlink" href="#supported-operating-systems" title="Permalink to this heading"></a></h3>
+<p>The interface was developed and tested for Windows 10, 11 and Linux operating systems.
+In linux, we expect compatibility with most recent versions. It has also been successfully tested in Ubuntu Linux operating systems through wine-7.5 (Staging) if using the windows version.</p>
 </section>
 <section id="known-possible-issues">
-<h3>Known Possible Issues<a class="headerlink" href="#known-possible-issues" title="Permalink to this headline"></a></h3>
-<p>There are some unwanted behaviors expected in some system configuration scenarios. It is by no means
-a bug in the software. Additional configurations may be needed for perfect functioning.</p>
-<p><em>PATH Environment Variable</em>
-Please make sure that in your environmental variables (Windows or Wine/Linux) an implicit “.”
-directory path is added. The absence of it will cause failure in generating the occultation maps
-images, and ultimately, also failing to complete the task of predicting occultations.</p>
+<h3>Known Possible Issues<a class="headerlink" href="#known-possible-issues" title="Permalink to this heading"></a></h3>
+<p>In some system configuration scenarios, you may expect some unwanted behaviors, It is important to add that these are not bugs in the software. Additional configurations may be needed for perfect functioning.</p>
+</section>
+<section id="old-versions-cached-data">
+<h3>Old versions cached data<a class="headerlink" href="#old-versions-cached-data" title="Permalink to this heading"></a></h3>
+<p>If already installed in the machine, the Occultation Interface cached information may interfere with the new version. Configurations may be conserved and some problems arose from that fact. To solve this problem, the interface, when run for the first time, will erase all cached data and end its section for completeness.  After that, everything is expected to work properly.</p>
+</section>
+<section id="path-environment-variable">
+<h3>PATH Environment Variable<a class="headerlink" href="#path-environment-variable" title="Permalink to this heading"></a></h3>
+<p>Before starting any project, please make sure that in your environmental variables (Windows or Wine/Linux), a new implicit ‘.’ directory path is added. The absence of it will cause failure in generating the occultation maps images, and ultimately, also failing to complete the task of predicting occultations.
+The process behind adding a new folder to your system path will depend on which SO you’re using, but it can easily be found in other sources and tutorials. Just make sure you call it “.” (symbol dot).</p>
+</section>
+</section>
+<section id="running-occultin">
+<h2>Running OccultIn<a class="headerlink" href="#running-occultin" title="Permalink to this heading"></a></h2>
+<p>Once installed we are interested in running the application. This process differs depending on your operational system.</p>
+<section id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this heading"></a></h3>
+<p>In windows the process is very forward and it consists of running the ‘AsyncQueueTasks’ file or the icon which is generated for the application.</p>
+</section>
+<section id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this heading"></a></h3>
+<p>In Linux there is a second option in the execution of the interface. One may run it locally or as a server. To do so, respectively, one should run the files “occultin.sh” or “occultin-server.sh”. To run locally, one can also simply use the icon of the application.</p>
 </section>
 </section>
 <section id="creating-a-user-account">
-<h2>Creating a User Account<a class="headerlink" href="#creating-a-user-account" title="Permalink to this headline"></a></h2>
+<h2>Creating a User Account<a class="headerlink" href="#creating-a-user-account" title="Permalink to this heading"></a></h2>
 <p>When you start the application for the first time, it is necessary to sign up for a user account.
 The OccultIN interface is developed to support multiple users and, therefore, an account is needed
 to start using the interface. The account consists of a user, an email, and a password.</p>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects &mdash; OccultIN Project Update documentation</title>
+  <title>Projects &mdash; OccultIn Project Update documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,11 +14,12 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Predictions" href="predictions.html" />
+    <link rel="next" title="Occultation Predictions" href="predictions.html" />
     <link rel="prev" title="Getting Started" href="getting_started.html" /> 
 </head>
 
@@ -27,7 +28,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> OccultIN Project
+            <a href="../../index.html" class="icon icon-home"> OccultIn Project
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -45,24 +46,10 @@
 <p class="caption" role="heading"><span class="caption-text">The User Interface</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Projects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#occultation-predictions">Occultation Predictions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#project-name">Project Name</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#solar-system-object">Solar System Object</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#time-range">Time Range</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#extra-information">Extra Information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="predictions.html">Predictions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="predictions.html">Occultation Predictions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="light_curve_analysis.html">Light Curve Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shape_analysis.html">Shape Analysis</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial.html">Tutorial</a></li>
 </ul>
 
         </div>
@@ -71,7 +58,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">OccultIN Project</a>
+          <a href="../../index.html">OccultIn Project</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -90,77 +77,11 @@
            <div itemprop="articleBody">
              
   <section id="projects">
-<span id="sec-projects"></span><h1>Projects<a class="headerlink" href="#projects" title="Permalink to this headline"></a></h1>
-<p>The organization of the data inside the occultation interface is done by means of projects.
-They are the highest level of data organization and can be accessed only one at a time.
-Every project has a name and a description and can host one or multiple objects of interest
-for which occultation predictions will be searched.</p>
-<p>When an occultation prediction is found it only means that it is likely for it to occur within
-the given uncertainties at that given location. Further analysis for this event,
-such as the determination of the real instants of the occultation at a given location and/or
-fitting the projected shape of the object will need additional observation data. When provided,
-each occultation prediction entry/result will act as a starting point to add and analyze
-additional data.</p>
+<span id="sec-projects"></span><h1>Projects<a class="headerlink" href="#projects" title="Permalink to this heading"></a></h1>
+<p>The organization of the data inside the occultation interface is done by means of projects. They are the highest level of data organization and can be accessed only one at a time. Every project has a name and a description and can host one or multiple objects of interest for which occultation predictions will be searched.</p>
+<p>When an occultation prediction is found it means that it is likely for the shadow of the event to be projected onto Earth within the given uncertainties. Errors may occur due to imprecise ephemeris and star position. Further analysis for this event, such as the determination of the real instants of the occultation at a given location and/or fitting the projected shape of the object will need additional observation data. When provided, each occultation prediction entry/result will act as a starting point to add and analyze additional data.</p>
 <a class="reference internal image-reference" href="../../_images/projects_structure.png"><img alt="Projects Structure" class="align-center" src="../../_images/projects_structure.png" style="width: 600px;" /></a>
-<p>Projects can be created and removed on the home screen of the application. The creation of a
-project is linked with the generation of an occultation prediction by design. Once a project
-is created, it will not be possible to change its attributes. Any updates to a project will
-require the creation of a new project.</p>
-<section id="occultation-predictions">
-<h2>Occultation Predictions<a class="headerlink" href="#occultation-predictions" title="Permalink to this headline"></a></h2>
-<p>In this section we will describe how to use the Occultation Prediction Interface.
-This UI section is divided into 5 sequential screens: Project Name, Solar System Object,
-Time Range, Extra Information, and Summary.</p>
-<section id="project-name">
-<h3>Project Name<a class="headerlink" href="#project-name" title="Permalink to this headline"></a></h3>
-<p>The first step when initializing a new project consists of naming and describing it.
-Naming the project is required, whilst adding a description is optional. The name field is the
-project’s identifier, therefore it must be unique. Add a description to further describe the
-project if needed.</p>
-</section>
-<section id="solar-system-object">
-<h3>Solar System Object<a class="headerlink" href="#solar-system-object" title="Permalink to this headline"></a></h3>
-<p>One or multiple objects can be added as targets for occultation predictions in each project.
-The field “Object Name” needs to receive a valid identifier for their database - the official
-name of the body, the spkid, or the designated number for the query are all options to be
-provided. Once you provide a valid object’s identifier you can choose the source to retrieve
-the target’s ephemeris: online or local. If you choose the online method a query is submitted
-to the JPL Small-Body Database.</p>
-<p>For the body ephemeris, it is suggested to use the ‘Horizons/JPL’ query, as it is the default
-in the application. If the body you insert in the “Object Name” field exists in the database, it will be loaded to your body object. Otherwise, an error “Object was not located on satdb or sbdb” will appear, and you’ll need to load a BSP file manually. It may be necessary to use BSP files if the object is not included in the database. Again, be aware of the format used and that this is more challenging if you have no experience with BSP files or the application.</p>
-<p>When the fields are completed, you can click “Include Object.” If the object is validated
-correctly, it will appear at the end of the screen. You can then remove it or edit its apparent
-radius. The default value will be the one fetched by the database.</p>
-<p>Although it is possible to add and work with multiple bodies, creating a project for each object
-of interest for this interface version is recommended, as the configurations for the search
-you’ll add further on will count for all bodies included.</p>
-</section>
-<section id="time-range">
-<h3>Time Range<a class="headerlink" href="#time-range" title="Permalink to this headline"></a></h3>
-<p>The next step is adding a time interval to the prediction, with start and end times. The time
-inserted, if written manually, should have the format “yyyy-mm-dd” for the date and
-“hour: minute” for the hour. Note that the format considers times from 00:00 to 23:59, not AM
-and PM. There is also a display calendar to pick dates from.</p>
-<p>Beyond that, this page also requires mandatory Prediction Parameters. The “Star Magnitude Limit”
-asks for the maximum star magnitude for prediction (default is 10). The “Search Step” is the
-step in seconds to calculate the predictions (default is 60) and the “Segment (divs)” is the
-number of divisions on the stellar catalog to perform the search (default is 1).</p>
-</section>
-<section id="extra-information">
-<h3>Extra Information<a class="headerlink" href="#extra-information" title="Permalink to this headline"></a></h3>
-<p>Extra information is dealt with in two fields, “Catalog” (default is “gaiardr3”) and “Off-Earth
-Sigma” (default is 1).</p>
-<p>The “Off-Earth Sigma’’ means that occultations that have an off-Earth ephemeris error sigma
-equal to the input number are considered. Increasing this number will make occultations with
-larger off-Earth sigma errors to be found and counted as results.</p>
-</section>
-<section id="summary">
-<h3>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"></a></h3>
-<p>This step summarizes all the information provided to be checked before creating the project.
-It is impossible to edit the data afterward without creating a new project. No extra action is
-required on this page.</p>
-</section>
-</section>
+<p>Projects can be created and removed on the home screen of the application. The creation of a project is linked with the generation of an occultation prediction by design. Once a project is created, it will not be possible to change its attributes. Any updates to a project will require the creation of a new project.</p>
 </section>
 
 
@@ -168,7 +89,7 @@ required on this page.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="predictions.html" class="btn btn-neutral float-right" title="Predictions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="predictions.html" class="btn btn-neutral float-right" title="Occultation Predictions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

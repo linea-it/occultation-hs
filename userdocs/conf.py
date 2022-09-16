@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'OccultIN Project'
+project = 'OccultIn Project'
 copyright = '2022, Update'
 author = 'Update'
 
