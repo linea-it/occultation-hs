@@ -3,10 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to OccultIN Project's user documentation!
-=================================================
+.. image:: ../../images/occultation_interface2.svg
+    :width: 500
+    :align: center
+    :alt: Exemplo Curva de Luz
 
-A basic introduction here.
+Welcome to OccultIn Project's user documentation!
+=================================================
 
 .. toctree::
    :maxdepth: 1

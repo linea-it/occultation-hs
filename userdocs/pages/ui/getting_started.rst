@@ -6,9 +6,9 @@ Getting Started
 Install OccultIn
 -----------------
 
-The OccultIN Software is available to download via
-https://www.11tech.com.br/SORA/Install-Occultin-Windows-0.97.exe for a
-Windows operational system and in https://www.11tech.com.br/SORA/install-occultin-linux.sh
+The OccultIn Software is available to download via
+`Download Windows<https://www.11tech.com.br/SORA/Install-OccultIn-Windows-0.97.exe>`_ for a
+Windows operational system and in `Download Linux<https://www.11tech.com.br/SORA/install-OccultIn-linux.sh>`_
 for a Linux operational system. Save and execute the installation in your
 system. In windows you will have an executable file. In Linux you must
 run the shell file.
@@ -48,14 +48,14 @@ In windows the process is very forward and it consists of running the 'AsyncQueu
 Linux
 ^^^^^^^
 
-In Linux there is a second option in the execution of the interface. One may run it locally or as a server. To do so, respectively, one should run the files “occultin.sh” or “occultin-server.sh”. To run locally, one can also simply use the icon of the application.
+In Linux there is a second option in the execution of the interface. One may run it locally or as a server. To do so, respectively, one should run the files “OccultIn.sh” or “OccultIn-server.sh”. To run locally, one can also simply use the icon of the application.
 
 
 Creating a User Account
 -----------------------
 
 When you start the application for the first time, it is necessary to sign up for a user account.
-The OccultIN interface is developed to support multiple users and, therefore, an account is needed
+The OccultIn interface is developed to support multiple users and, therefore, an account is needed
 to start using the interface. The account consists of a user, an email, and a password.
 
 .. image:: ../../images/getting_started_00.png

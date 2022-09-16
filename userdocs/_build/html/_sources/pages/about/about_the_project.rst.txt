@@ -1,12 +1,12 @@
-.. _Sec:The OccultIN Project:
+.. _Sec:The OccultIn Project:
 
-The OccultIN Project
+The OccultIn Project
 ====================
 
 Overview
 --------
 
-The Occultation Interface (OccultIN) is a science community effort to enable Solar System
+The Occultation Interface (OccultIn) is a science community effort to enable Solar System
 occultation science in an easy and innovative way and is powered by Kickstarter grants through the
 program “Preparing for AStrophysics with LSST”.
 
@@ -20,7 +20,7 @@ world of discoveries.
 
 Stellar occultations are a powerful observational technique for the determination of sizes and
 shapes of small bodies in the Solar System with kilometric accuracy. In addition, an investigation
-of the neighborhoods of the occulting body is also possible and may lead to the discovery and
+of the neighborhoods of the OccultIng body is also possible and may lead to the discovery and
 analysis of rings, jets, satellites, and atmospheres as tenous as a few nano bars. One of the
 interesting features of a stellar occultation is that it does not matter how faint the target object
 is, it is enough to record the flux variation from the star it occults as its light is temporarily
@@ -35,7 +35,7 @@ facilitate predictions and analysis of occultation events to the community overa
 of this project.
 
 Many steps are involved in making a stellar occultation a viable science case: predicting the event,
-observing the event, and analyzing the observations. The OccultIN interface allows anyone interested
+observing the event, and analyzing the observations. The OccultIn interface allows anyone interested
 in predicting and processing observed events in a single and very intuitive user interface. The
 interface itself is organized in a structure of Projects. Each project will contain (when they
 exist) the occultation predictions for the object or set of objects of interest for the given time
@@ -45,11 +45,11 @@ event and derive the projected two-dimensional shape of the body in the sky alon
 physical properties as well as the updated astrometric position for the body.
 
 .. warning::
-   The OccultIN interface does not extract light curves from FITS, images, or video files. It rather
+   The OccultIn interface does not extract light curves from FITS, images, or video files. It rather
    uses light curves as an input to determine the occultation event instants and from there fits the
-   sky projected ellipse to determine the occulting body's physical properties.
+   sky projected ellipse to determine the OccultIng body's physical properties.
 
-The OccultIN backend is developed on the rigorous python-based library SORA (Stellar Occultation
+The OccultIn backend is developed on the rigorous python-based library SORA (Stellar Occultation
 Reduction Analysis) designed specifically to create pipelines to predict and analyze stellar
 occultations by small bodies.
 
@@ -58,4 +58,6 @@ occultations by small bodies.
 The Team
 --------
 
-Describe here the team...
+This work was supported by the Preparing for Astrophysics with LSST Program, funded by the Heising Simons Foundation through grant 2021-2975, and administered by Las Cumbres Observatory.
+
+This project was enabled by members of the Rio Group and LIneA, and developed by 11Tech company. Visual identity of Logos were developed by Ferreira, Paulina Rossi from Universidade De São Paulo.
