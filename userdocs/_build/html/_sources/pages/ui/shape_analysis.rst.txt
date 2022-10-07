@@ -32,8 +32,7 @@ As we can have negative chords, we should also be able to filter solutions for t
 
 Outputs (plots)
 ------------------------
-We have our main plot with the chords and, after the fit, the family of ellipses solutions to the fit. Besides this, many plots of chi square to evaluate the quality of fit of each parameter of the ellipse are also available.
-
+We have our main plot with the chords and, after the fit, the family of ellipses solutions to the fit. Besides this, many chi-square plots to evaluate each ellipse parameter's quality of fit are also available.
 
 Saving the modeled data
 ------------------------

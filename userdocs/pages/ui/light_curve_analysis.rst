@@ -5,15 +5,14 @@ Light Curve Analysis
 
 Customizing the Star information
 ---------------------------------
-Inside the occultation event tab, there is a ‘Star’ button to customize the Star object information. In the modal relative to its addition, notice that many fields are already filled out. This is because there is already the information on which stellar body is associated with the event, although some information might still be needed to set the object. Its Apparent Diameter can, and must, be calculated to proceed with the analysis. 
+Inside the occultation event tab, there is a ‘Star’ button to customize the Star object information. In the modal relative to its addition, notice that many fields are already filled out. This is because there is already information on which stellar body is associated with the event, although some information might still be needed to set the object. Its Apparent Diameter can and must, be calculated to proceed with the analysis. 
 
-Bayley-Jones Star distance and Proper Motion Correction are usually suggested to be checked for most applications. For the apparent diameter, 4 methods are offered: Kervella, Van Belle, by Catalog and Manual. Although their description is beyond our scope, many of the info needed to use them is automatically filled.
+Bayley-Jones Star distance and Proper Motion Correction are usually suggested to be checked for most applications. For the apparent diameter, four methods are offered: Kervella, Van Belle, Catalog, and Manual. Although their description is beyond our scope, much of the info needed to use them is automatically filled.
 
 
 Adding Light Curves
 --------------------
-The option “New Light Curve”, inside the event, will open a modal window. Notice when uploading a file related to a light flux that and its column indexes must be specified in the correspondent fields (indexing starts at 1). There is an option to specify if a flux error exists in the file and its column index.
-
+The option “New Light Curve”, inside the event will open a modal window. Notice when uploading a file related to a light flux that its column indexes must be specified in the correspondent fields (indexing starts at 1). There is an option to specify if a flux error exists in the file and its column index.
 
 Normalizing the data
 ---------------------

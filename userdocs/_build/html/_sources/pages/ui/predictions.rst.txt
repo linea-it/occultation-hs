@@ -8,12 +8,12 @@ In this section we will describe how to use the Occultation Prediction Interface
 Project Name
 ^^^^^^^^^^^^^^^^^^
 
-The first step when initializing a new project consists of naming and describing it. Naming the project is required, whilst adding a description is optional. The name field is the project's identifier, therefore it must be unique. Add a description to further describe the project if needed.
+The first step when initializing a new project consists of naming and describing it. Naming the project is required, whilst adding a description is optional. The name field is the project’s identifier. Therefore it must be unique. Add a description to describe the project further if needed.
 
 Solar System Object
 ^^^^^^^^^^^^^^^^^^^^
 
-One or multiple objects can be added as targets for occultation predictions in each project.  The field “Object Name” needs to receive a valid identifier for their database - the official name of the body, the spkid, or the designated number for the query are all options to be provided and can all be found on the `Small Bodies Database <https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/>`_ from the Jet Propulsion Lab (JPL). Once you provide a valid object's identifier you can choose the source to retrieve the target's ephemeris: online or local. If you choose the online method a query is submitted to the JPL Small-Body Database.
+One or multiple objects can be added as targets for occultation predictions in each project.  The field “Object Name” needs to receive a valid identifier, for their database - the official name of the body, the spkid, or the designated number for the query are all options to be provided and can all be found on the `Small Bodies Database <https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/>`_ from the Jet Propulsion Lab (JPL). Once you provide a valid object's identifier you can choose the source to retrieve the target's ephemeris: online or local. If you choose the online method, a query is submitted to the JPL Small-Body Database.
 
 For the body ephemeris, it is suggested to use the 'Horizons/JPL' query, as it is the default in the application. It may be necessary to use BSP files if the object is not included in the database. Again, be aware of the format used and that this is more challenging if you have no experience with BSP files or the application.
 
@@ -33,12 +33,12 @@ Extra information is dealt with in two fields, “Catalog” (default is “gaia
 
 The catalog where the interface will search for the stars can be changed to “gaiadr2”, but for the general application, it is sufficient to keep the default.
 
-The “Off-Earth Sigma'' means that occultations that have an off-Earth ephemeris error sigma equal to the input number are considered. Increasing this number will make occultations with larger off-Earth sigma errors to be found and counted as results.
+The "Off-Earth Sigma" means that occultations with an off-Earth ephemeris error sigma equal to the input number are considered. Increasing this number will cause occultations with larger off-Earth sigma errors to be found and counted as results.
 
 Summary
 ^^^^^^^^^^^^^^^^^^^^
 
-This step summarizes all the information provided to be checked before creating the project. It is impossible to edit the data afterward without creating a new project. No extra action is required on this page.
+This step summarizes all the information to be checked before creating the project. It is impossible to edit the data afterward without creating a new project. No additional action is required on this page.
 
 Managing and Exploring occultations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

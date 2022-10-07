@@ -52,7 +52,7 @@
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#initializing-an-project">Initializing an Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initializing-a-project">Initializing a Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#light-curves-star">Light Curves &amp; Star</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#observers">Observers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ellipse-fitting">Ellipse fitting</a><ul>
@@ -91,11 +91,11 @@
              
   <section id="tutorial">
 <span id="sec-tutorial"></span><h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline"></a></h1>
-<p>Let’s do a full project as a way to visualize the processes in the interface. Assuming downloading and executing the interface went ok, we open the ‘Sign Up’ page and create an account. The verification key will arrive shortly so we can log in.</p>
+<p>Let’s do a whole project as a way to visualize the processes in the interface. Assuming downloading and executing the interface went ok, we opened the ‘Sign Up’ page and created an account. The verification key will arrive briefly in the email account registered so we can log in.</p>
 <p>Logged in, we may create our first project.</p>
-<section id="initializing-an-project">
-<h2>Initializing an Project<a class="headerlink" href="#initializing-an-project" title="Permalink to this headline"></a></h2>
-<p>After naming the project, we need to add a body. Its identification can be its name, spkid or designation number to query the SBDB.  For example, if we were to use ‘Paris’ as a body we could search for ‘Paris’, ‘3317 Paris’, ‘1984 KF’ or ‘2003317’. This information can be found on the <a class="reference external" href="https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/">Small Bodies Database</a> .</p>
+<section id="initializing-a-project">
+<h2>Initializing a Project<a class="headerlink" href="#initializing-a-project" title="Permalink to this headline"></a></h2>
+<p>After naming the project, we need to add a body. Its identification can be its name, spkid, or designation number to query the SBDB.  For example, if we were to use ‘Paris’ as a body, we could search for ‘Paris’, ‘3317 Paris’, ‘1984 KF’, or ‘2003317’. This information can be found in the <a class="reference external" href="https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/">Small Bodies Database</a> .</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -104,8 +104,8 @@
 <div class="line"><br /></div>
 </div>
 <p>There is also an option to add the files of ephemeris of bodies we are interested in. This case won’t be discussed in the tutorial since it is only recommended for experienced users. The result should be the same.</p>
-<p>Note finally that if you’re interested in many bodies with distinct characteristics you may want to create separate projects. When we set the time window for the prediction, we set it for all bodies, which may cause inconveniences if bodies have different density of stars in their fields.</p>
-<p>Knowing our time interval of interest for the prediction we set the ‘Start Time’ and ‘End Time’ in the next step, ‘Prediction Parameters’. The star magnitude Limit is basically how faint of a star you want to search in the catalog for it to be considered an event when occulted. Usually, stars fainter than 18 ( &gt;18 apparent magnitudes) aren’t ideal. The catalog of which the interface searches the stars is the GAIA eDR3 and for most cases should be kept that way.</p>
+<p>Finally, if you’re interested in many bodies with distinct characteristics, you may want to create separate projects. When we set the time window for the prediction, we set it for all bodies, which may cause inconveniences if bodies have different densities of stars in their fields.</p>
+<p>Knowing our time interval of interest for the prediction, we set the ‘Start Time’ and ‘End Time’ in the next step, ‘Prediction Parameters’. The star magnitude Limit is basically how faint of a star you want to search in the catalog for it to be considered an event when occulted. Usually, stars fainter than 16 ( &gt;16 apparent magnitudes) aren’t ideal. The catalog of which the interface searches the stars is the GAIA eDR3 and should be kept that way for most cases.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -113,8 +113,8 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>We can also set the granularity of the search in ‘Search Steps’ and the number of segments that the search should be divided into in ‘Segments’. This division is due to data flow in long searches. Dividing decreases errors for long queries.</p>
-<p>Of course ephemeris can be imprecise. If you are interested in a body with low precision in its position you may want to set  the Off-Earth Sigma for the shadows predicted (note that this may be wrong) to be projected close to Earth. It basically uses (Radius + Ephemeris Error * Sigma) for the search instead of Radius.</p>
+<p>We can also set the granularity of the search in ‘Search Steps’ and the number of segments the search should be divided into in ‘Segments’. This division is due to data flow in long searches. Dividing decreases errors for long queries.</p>
+<p>Of course, ephemeris can be imprecise. If you are interested in a body with low precision in its position, you may want to set  the Off-Earth Sigma for the shadows predicted (note that this may be wrong) to be projected close to Earth. It uses (Radius + Ephemeris Error * Sigma) for the search instead of Radius.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -122,7 +122,7 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>We’re finally into the interface with our first project! We can now see a hierarchy tree in the left panel with the project, bodies and occultations of each. In the top panel there is also an Jobs modal that shows processes occuring, done and waiting. There you can manage your tasks.</p>
+<p>We’re finally into the interface with our first project! We can now see a hierarchy tree in the left panel with the project, bodies and occultations of each. The top panel also shows a Jobs modal that shows processes occurring, done, and waiting. There you can manage your tasks.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -143,8 +143,8 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>Most properties of the star are already set as we have it on the catalog. For most applications Star distance and Proper Motion Correction should be checked. It is important that we calculate its apparent diameter (at the end of the modal). For that we have a few methods, nominally Kervella and Van Belle. For both, most data is set when we create the project.</p>
-<p>Now, to the Light Curve. This process consists of choosing a file and defining the columns of interest for each of the parameters. There is not much more to it in this step. Remember to check the time format used.</p>
+<p>Most star properties are already set, as we have them on the catalog. For most applications, Star distance and Proper Motion Correction should be checked. We must calculate its apparent diameter (at the end of the modal). We have a few methods, nominally Kervella and Van Belle. For both, most data is set when we create the project.</p>
+<p>Now, to the Light Curve. This process consists of choosing a file and defining the columns of interest for each parameter. There is not much more to it in this step. Remember to check the time format used.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -152,7 +152,7 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>After adding the light curve we can normalize the data. To do so, it is only important to notice that the data must not include the occultation. If the mask is not correctly applied, the occultation may be distorted and the rest of data won’t be properly normalized. We still need to determine key moments in our light curve such as immersion and emersion times. To do so, we use the auto detection function from SORA.</p>
+<p>After adding the light curve, we can normalize the data. Notice that the data must not include the occultation. If the mask is not correctly applied, the occultation may be distorted, and the rest of the data won’t be properly normalized. We still need to determine key moments in our light curve. Such as immersion and emersion times. To do so, we use the auto-detection function from SORA.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -160,11 +160,11 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>Finally to fit the models in our curve we use the LC fit. Make sure the initial and end time from the occultation are correct.</p>
+<p>Finally, we use the LC fit to fit the models in our curve. Make sure the initial and end time from the occultation are correct.</p>
 </section>
 <section id="observers">
 <h2>Observers<a class="headerlink" href="#observers" title="Permalink to this headline"></a></h2>
-<p>For each light curve we have, of course, an observer that captured the data. It is now time to add this information. In the observer page we can set their information, create a new observer and add their coordinates and altitude. For the coordinate, a lot of formats are accepted but note that North and East are considered positive. In doubt, consider using  ∓12 34 56.78 (degrees, minutes and seconds) as the format.</p>
+<p>For each light curve, we have an observer that captures the data. It is now time to add this information. On the observer page, we can set their information, create a new observer and add their coordinates and altitude. For the coordinate, many formats are accepted but note that North and East are considered positive. In doubt, consider using  ∓12 34 56.78 (degrees, minutes, and seconds) as the format.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -177,7 +177,7 @@
 <h2>Ellipse fitting<a class="headerlink" href="#ellipse-fitting" title="Permalink to this headline"></a></h2>
 <section id="chords">
 <h3>Chords<a class="headerlink" href="#chords" title="Permalink to this headline"></a></h3>
-<p>The first step into fitting the Ellipse is setting the chords that will set its parameters. A chord is nothing more than a light curve projected into the sky plane. For the projection we need to associate the light curve with its observer, in this way, the geometry is set. There may be a shift in time needed if the observation has some note to it. If nothing is abnormal you can ignore this field. For organization purposes you can set the chord color from the hue.</p>
+<p>The first step in fitting the Ellipse is setting the chords that will set its parameters. A chord is nothing more than a light curve projected into the sky plane. We need to associate the light curve with its observer for the projection. In this way, the geometry is set. There may be a shift in the time needed if the observation has some notes. If nothing is abnormal, you can ignore this field. For organization purposes, you can set the chord color from the hue.</p>
 <p>We can now plot the ellipse.</p>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -189,8 +189,8 @@
 </section>
 <section id="fitting-the-ellipse">
 <h3>Fitting the ellipse<a class="headerlink" href="#fitting-the-ellipse" title="Permalink to this headline"></a></h3>
-<p>Now, with all the chords in place we can use some mathematical methods to fit an ellipse to its extremes. Clicking on the fitting you’ll be greeted with a lot of fields. To describe an ellipse it needs 5 parameters. Those are in this coordinate F center, G center, Equatorial radius, Oblateness and Position Angle. For each of those we need an initial guess as the algorithm will try to converge on the best fit parameters. Note that a bad guess parameter can lead to basically divergence.</p>
-<p>It is also interesting to set the shadow solutions for ellipses within 3-sigma. We have also generated some chi squared plots for each parameter.</p>
+<p>Now, with all the chords in place, we can use some mathematical methods to fit an ellipse to its extremes. To describe an ellipse, it needs five parameters. Those are in this coordinate F center, G center, Equatorial radius, Oblateness, and Position Angle. We need an initial guess for each of those as the algorithm will try to converge on the best fit parameters. Note that a lousy guess parameter can lead to divergence.</p>
+<p>It is also interesting to set the shadow solutions for ellipses within 3-sigma. We have also generated some chi-squared plots for each parameter.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -205,8 +205,8 @@
 </section>
 <section id="filter">
 <h3>Filter<a class="headerlink" href="#filter" title="Permalink to this headline"></a></h3>
-<p>If you have an negative chord, that is, an observation that didn’t detect an occultation, you may set it as a boundary condition for your solutions. This is done by setting the chord as negative in the page of Light Curve and clicking on the filter method.</p>
-<p>If all went well we can now export the data from the results.</p>
+<p>If you have a negative chord, that is, an observation that didn’t detect an occultation, you may set it as a boundary condition for your solutions. This is done by setting the chord as negative in the page of Light Curve and clicking on the filter method.</p>
+<p>If all goes well, we can now export the data from the results.</p>
 </section>
 </section>
 </section>

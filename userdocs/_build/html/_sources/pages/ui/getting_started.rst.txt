@@ -8,8 +8,8 @@ Install OccultIn
 
 The OccultIn Software is available to download via
 `Download Windows <https://www.11tech.com.br/SORA/Install-OccultIn-Windows-0.97.exe>`_ for a
-Windows operational system and in `Download Linux <https://www.11tech.com.br/SORA/install-OccultIn-linux.sh>`_
-for a Linux operational system. Save and execute the installation in your
+Windows operating system and in `Download Linux <https://www.11tech.com.br/SORA/install-OccultIn-linux.sh>`_
+for a Linux operating system. Save and execute the installation in your
 system. In windows you will have an executable file. In Linux you must
 run the shell file.
 
@@ -38,7 +38,7 @@ The process behind adding a new folder to your system path will depend on which 
 Running OccultIn 
 -----------------
 
-Once installed we are interested in running the application. This process differs depending on your operational system.
+Once installed we are interested in running the application. This process differs depending on your operating system.
 
 Windows
 ^^^^^^^^^
@@ -63,18 +63,8 @@ to start using the interface. The account consists of a user, an email, and a pa
     :align: center
     :alt: Sign in/up window
 
-You can sign in or sign up when you open the application. If you do not have an account yet, you can
-go to the "Sign Up" page, where you will be asked to add your information. Since you are using a  If
-you are using the desktop version, all information will be stored locally and will be erased if you
-delete the application from your machine. Although now the usage is local, an email is required for
-compatibility proposes for future web applications.
+You can sign in or sign up when you open the application. If you do not have an account yet, you can go to the “Sign Up” page, where you will be asked to add your information. If you use the desktop version, all information will be stored locally and erased if you delete the application from your machine. Although now the usage is local, an email is required for compatibility proposes for future web applications.
 
-A username and email can be only associated with a single account. Duplicates are not allowed. Only
-one account is permitted for each email and you can't use the same username twice, since it is an
-identifier. For now, there are no restrictions on your password, as it is, currently, a local
-application.
+A username and email can be only associated with a single account. Duplicates are not allowed. Only one account is permitted for each email, and you can’t use the same username twice since it is an identifier. There are no restrictions on your password, as it is currently a local application.
 
-After submitting it, you have created an account! Add your email or username (both options work) and
-password to enter it. If the option “Remember Login” is selected, you will not be asked for this
-information again when you reopen the application and will automatically log into your account. If
-needed, there is an option to reset your password.
+After submitting it, you have created an account! Add your email or username (both options work) and password to enter it. If the option “Remember Login” is selected, you will not be asked for this information again when you reopen the application, and you will automatically log into your account. If needed, there is an option to reset your password.
