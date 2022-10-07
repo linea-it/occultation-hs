@@ -65,13 +65,13 @@ to start using the interface. The account consists of a user, an email, and a pa
 
 You can sign in or sign up when you open the application. If you do not have an account yet, you can
 go to the "Sign Up" page, where you will be asked to add your information. Since you are using a  If
-you are using the desktop version, all information iswill be stored locally and will be erased if you
+you are using the desktop version, all information will be stored locally and will be erased if you
 delete the application from your machine. Although now the usage is local, an email is required for
 compatibility proposes for future web applications.
 
 A username and email can be only associated with a single account. Duplicates are not allowed. Only
 one account is permitted for each email and you can't use the same username twice, since it is an
-identifier. For now, there are noaren't restrictions on your password, as it is, currently, a local
+identifier. For now, there are no restrictions on your password, as it is, currently, a local
 application.
 
 After submitting it, you have created an account! Add your email or username (both options work) and
