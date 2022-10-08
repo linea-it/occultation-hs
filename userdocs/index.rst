@@ -31,6 +31,6 @@ Welcome to OccultIn Project's user documentation!
 
 .. toctree::
    :maxdepth: 1
-   :caption: Tutorials
+   :caption: Tutorial
 
    pages/tutorial/tutorial
