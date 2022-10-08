@@ -39,7 +39,7 @@ Knowing our time interval of interest for the prediction, we set the ‘Start Ti
 
 We can also set the granularity of the search in ‘Search Steps’ and the number of segments the search should be divided into in ‘Segments’. This division is due to data flow in long searches. Dividing decreases errors for long queries.
 
-Of course, ephemeris can be imprecise. If you are interested in a body with low precision in its position, you may want to set  the Off-Earth Sigma for the shadows predicted (note that this may be wrong) to be projected close to Earth. It uses (Radius + Ephemeris Error * Sigma) for the search instead of Radius.
+Of course, ephemeris can be imprecise. If you are interested in a body with low precision in its position, you may want to set the Off-Earth Sigma. Doing so, shadows predicted to be cast by some defined distance from the planet will be also registered. It uses (Radius + Ephemeris Error * Sigma) for the search instead of Radius.
 
 |
 
