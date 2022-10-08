@@ -133,9 +133,8 @@
 </section>
 <section id="light-curves-star">
 <h2>Light Curves &amp; Star<a class="headerlink" href="#light-curves-star" title="Permalink to this headline"></a></h2>
-<p>Let’s suppose we have data for one of the body’s occultations. We must add here that the OccultIn does not extract light curves from FITS, images, or video files. These processes are a whole project on their own and have their own other tools that we won’t be discussing.</p>
-<p>We can now add our light curve. For this we need a file that contains, at least, a column of time and a column of light flux. We can also have an error column.</p>
-<p>Before properly adding a Light curve we set our Star on the same page, the Light Curve section.</p>
+<p>Let’s suppose we have data for one of the body’s occultations. We now must set the star occulted and the data generated from the occultation. Note that OccultIn does not extract light curves from FITS, images, or video files. These processes are a whole project on their own and have their own other tools, that we won’t be discussing.</p>
+<p>Before properly adding a Light curve we need to set the Star on the Light Curve section.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -178,7 +177,6 @@
 <section id="chords">
 <h3>Chords<a class="headerlink" href="#chords" title="Permalink to this headline"></a></h3>
 <p>The first step in fitting the Ellipse is setting the chords that will set its parameters. A chord is nothing more than a light curve projected into the sky plane. We need to associate the light curve with its observer for the projection. In this way, the geometry is set. There may be a shift in the time needed if the observation has some notes. If nothing is abnormal, you can ignore this field. For organization purposes, you can set the chord color from the hue.</p>
-<p>We can now plot the ellipse.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -205,7 +203,7 @@
 </section>
 <section id="filter">
 <h3>Filter<a class="headerlink" href="#filter" title="Permalink to this headline"></a></h3>
-<p>If you have a negative chord, that is, an observation that didn’t detect an occultation, you may set it as a boundary condition for your solutions. This is done by setting the chord as negative in the page of Light Curve and clicking on the filter method.</p>
+<p>If you have a negative chord, that is, an observation that didn’t detect an occultation, you may set it as a boundary condition for your solutions. This is done by setting the chord as negative on the page of Light Curve and clicking on the filter method.</p>
 <p>If all goes well, we can now export the data from the results.</p>
 </section>
 </section>

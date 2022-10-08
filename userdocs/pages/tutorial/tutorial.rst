@@ -1,7 +1,7 @@
 .. _Sec:tutorial:
 
 Quick Start
-=========
+============
 
 Let’s do a whole project as a way to visualize the processes in the interface. Assuming downloading and executing the interface went ok, we open the ‘Sign Up’ page and created an account. The verification key will arrive briefly in the email account registered so we can log in.
 

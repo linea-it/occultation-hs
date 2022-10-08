@@ -58,10 +58,14 @@ When you start the application for the first time, it is necessary to sign up fo
 The OccultIn interface is developed to support multiple users and, therefore, an account is needed
 to start using the interface. The account consists of a user, an email, and a password.
 
+|
+
 .. image:: ../../images/getting_started_00.png
     :width: 300
     :align: center
     :alt: Sign in/up window
+
+|
 
 You can sign in or sign up when you open the application. If you do not have an account yet, you can go to the “Sign Up” page, where you will be asked to add your information. If you use the desktop version, all information will be stored locally and erased if you delete the application from your machine. Although now the usage is local, an email is required for compatibility proposes for future web applications.
 

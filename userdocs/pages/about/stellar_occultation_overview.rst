@@ -18,10 +18,14 @@ See below the image of the flux of a star when the centaur Chariklo passes
 in front of it, where you can see the drop caused by its two rings (2013C2R
 and 2013C1R) and by the object itself.
 
+|
+
 .. image:: ../../images/curvaluz.png
     :width: 800
     :align: center
     :alt: Exemplo Curva de Luz
+
+|
 
 Given the observer and its relative velocity to the body, a chord can be
 retrieved from the occultation. A chord is a traced line projected into
