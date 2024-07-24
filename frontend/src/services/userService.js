@@ -40,12 +40,16 @@ export default class UserService {
         return api.post(`user/password-reset/confirm/`, { "token": token, "password": newPassword });
     }
 
-    validateEmail(codigo){
-        
+    validateEmail(token){
+        return api.post(`user/verify_email`, { "token": token });
     }
 
     login(email, password) {
         return api.post(`login`, { "email": email, "password": password });
+    }
+
+    userVerify(email) {
+        return api.post(`user-verify`, { "email": email });
     }
 
     logout() {

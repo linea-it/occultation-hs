@@ -8,19 +8,23 @@ export default function RouteWrapper({
   path,
   ...rest
 }) {
-  const { signed, loading } = useContext(AuthContext);
+  const { user, signed, loading } = useContext(AuthContext);
 
   if (loading) {
     return (
       <div></div>
     )
-  } 
-
-  if (!signed && isPrivate) {
-    return <Redirect to="/login" />
   }
 
-  if (signed && path === '/login') {  
+  if (!signed && isPrivate) {
+    return <Redirect to="/signin" />
+  }
+
+  if (signed && !user.emailVerified && path !== "/verify-email") {
+    return <Redirect to="/verify-email" />
+  }
+
+  if (signed && path === '/signin') {  
     return <Redirect to="/select-project" />
   }
 

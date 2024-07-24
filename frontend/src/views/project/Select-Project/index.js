@@ -4,75 +4,103 @@ import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/auth';
 import { useHistory } from 'react-router-dom';
-
-const projectService = new ProjectService();
-
+import { Button, Modal } from 'react-bootstrap';
+import { toast } from 'react-toastify';
+import FloatCard from '../../../component/float-card';
 
 export default function SelectProjectPage() {
-    const history = useHistory();
-    const { signOut } = useContext(AuthContext);
-    const [project, setProject] = useState('');
-    const [projects, setProjects] = useState([]);
+  const projectService = new ProjectService();
+  const history = useHistory();
+  const { signOut } = useContext(AuthContext);
+  const [projects, setProjects] = useState([]);
+  const [selectedProject, setSelectedProject] = useState();
+  const [showDelete, setShowDelete] = useState(false);
+  const [nameProject, setNameProject] = useState('');
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         projects: []
-    //     };
-    //     this.handleAbrir = this.handleAbrir.bind(this);
-    //     this.handleNovoProjeto = this.handleNovoProjeto.bind(this);
+  useEffect(() => {
+    getListProject();
+  }, []);
 
-    //     this.project = createRef('');
-    // }
-
-    useEffect(() => {
-         projectService.list().then(function (result) {
-             console.log(result.data);
-             setProjects(result.data);
-         });
-         console.log("passei");
+  function getListProject() {
+    projectService.list().then(function (result) {
+      setProjects(result.data);
+      sessionStorage.setItem('listProject', JSON.stringify(result.data));
+      if (result.data.length > 0) {
+        setSelectedProject(result.data[0]);
+        setNameProject(result.data[0].name);
+      }
     });
+  }
 
-    // componentDidMount() {
-    //     var self = this;
-    //     projectService.list().then(function (result) {
-    //         self.setState({ projects: result.data })
-    //     });
-    // }
-
-    function handleAbrir() {
-        var id = project
-        history.push('/workspace/' + id);
+  function handleAbrir() {
+    var id = selectedProject.id;
+    if (id !== '') {
+      sessionStorage.setItem('project', JSON.stringify(selectedProject));
+      history.push('/dashboard/' + id);
     }
+  }
 
-    function sair() {
-        signOut();
-    }
+  function handleShowMessageDelete(event) {
+    setShowDelete(true);
+    event.preventDefault();
+  }
 
-    return (
-        <form className='dialog'>
-            <fieldset>
-                <legend>Project Select</legend>
-                <label htmlFor="tbxProjeto">Project:</label>
-                {/* <Form.Select className="form-control mb-4" id="tbxProjeto" name="tbxProjeto" ref={project} autoFocus aria-label="Default select example">
-                    {state.projects.map((element, index) => <option key={index}>{element.name}</option>)}
-                </Form.Select> */}
-                <Form.Select className="form-control mb-4" id="tbxProjeto" name="tbxProjeto" autoFocus aria-label="Default select example">
-                    {projects.map((element, index) => <option key={index}>{element.name}</option>)}
-                </Form.Select>
-                <button className="btn btn-primary mx-1" id="AbrirProjeto" name="AbrirProjeto" onClick={handleAbrir}>Abrir</button>
-                <Link to="/new-project"><button className="btn btn-secondary mx-1" id="NovoProjeto" name="NovoProjeto">Novo</button></Link>
-            </fieldset>
-            <br></br>
-            <br></br>
-            <hr></hr>
-            <div>
-                <ul>
-                    <li>
-                        <label onClick={sair}>Sair</label>
-                    </li>
-                </ul>
-            </div>
-        </form>
-    )
+  function handleCancelDelete() {
+    setShowDelete(false);
+  }
+
+  function handleDelete() {
+    var id = selectedProject.id;
+    projectService.delete(id).then(function (result) {
+      getListProject();
+      toast.success('Project successfully removed');
+      setShowDelete(false);
+    });
+  }
+
+  function handleChange(e) {
+    let projeto = projects.find(p => p.name === e.target.value)
+    setSelectedProject(projeto);
+    setNameProject(projeto.name);
+  }
+
+  return (
+    <>
+      <FloatCard title='Project Select'>
+        <FloatCard.Body>
+          <Form.Label htmlFor="tbxProjeto">Project</Form.Label>
+          <Form.Select
+            className="form-control mb-4" id="tbxProjeto" name="tbxProjeto" autoFocus aria-label="Default select example" onChange={handleChange}>
+            {projects.map((element, index) => <option key={index}>{element.name}</option>)}
+          </Form.Select>
+        </FloatCard.Body>
+        <FloatCard.Footer className="p-3">
+          <button disabled={projects.length === 0} className="btn btn-primary me-2" id="AbrirProjeto" name="AbrirProjeto" onClick={handleAbrir}><i className="bi bi-folder2-open"></i> Open</button>
+          <Link to="/new-project"><button className="btn btn-success me-2" id="NovoProjeto" name="NovoProjeto"><i className="bi bi-folder-plus"></i> New</button></Link>
+          <button disabled={projects.length === 0} className="btn btn-secondary me-2" onClick={handleShowMessageDelete}><i className="bi bi-trash"></i> Delete</button>
+          <hr></hr>
+          <div>
+            <label className='cursor' onClick={() => signOut()}><i className="bi bi-box-arrow-left"></i> Sign Out</label>
+          </div>
+        </FloatCard.Footer>
+      </FloatCard>
+
+      <Modal show={showDelete} onHide={handleCancelDelete}>
+        <Modal.Header closeButton>
+          <Modal.Title>Delete</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <label>Do you want to delete the project: {nameProject}</label>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleDelete}>
+            <i className="bi bi-trash"></i> Delete
+          </Button>
+          <Button variant="secondary" onClick={handleCancelDelete}>
+            <i className="bi bi-x"></i> Cancel
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  )
 }

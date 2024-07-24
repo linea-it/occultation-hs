@@ -1,74 +1,75 @@
+/* eslint-disable no-unused-vars */
+import { toast } from 'react-toastify';
+import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import PageLoader from '../../component/page-loader';
+import { AuthContext } from '../../contexts/auth';
+import { useHistory } from 'react-router-dom';
+import FloatCard from '../../component/float-card';
+import { Form, Button } from 'react-bootstrap';
 
-import React, { Component, createRef } from 'react';
-import UserService from '../../services/userService';
-import { useParams } from "react-router-dom";
+export default function EmailValidationPage() {
+  const history = useHistory();
+  const { verifyEmail, signOut } = useContext(AuthContext);
+  const [loader, showLoader, hideLoader] = PageLoader();
+  const [code, setCode] = useState("");
+  const [error, setError] = useState({});
 
-const userService = new UserService();
+  function handleSubmit() {
+    if (validate()) {
+      showLoader();
+      verifyEmail(
+        code
+      ).then(() => {
+        hideLoader();
+        toast.success("email successfully validated!");
+        history.push('/select-project');
+      }).catch((err) => {
+        hideLoader();
+        toast.error(err);
+      });
+    }
+  }
 
-function withRouter(Children){
-    return(props)=>{
+  function validate() {
+    const error = {};
+    if (!code) {
+      error.code = 'Required field';
+    }
+    setError(error);
+    return Object.entries(error).length === 0;
+  }
 
-       const match  = {params: useParams()};
-       return <Children {...props}  match = {match}/>
-   }
- }
-
-class EmailValidationPage extends Component {
-    constructor(props) {
-        super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.codigo = createRef('');
-        this.alertMsg = createRef('');
-        this.showFriendlyMsg = false;
-
-      }
-
-      componentDidMount(){
-
-      }
-
-      showAlert(msg){
-        this.alertMsg = msg;
-          this.showMsg = true;
-          this.forceUpdate();
-          setTimeout(() =>{
-            this.showMsg = false;
-            this.forceUpdate();
-          }, 5000);
-      }
-
-      handleSubmit(event) {
-        userService.validateEmail(
-            this.codigo.current.value
-            ).then((result)=>{
-            this.showAlert("email successfully validated!");
-            }).catch(()=>{
-            alert('There was an error! Please re-check your form.');
-            });
-        event.preventDefault();
-      }
-
-      render() {
-        return (
-          <form className='dialog' onSubmit={this.handleSubmit}>
-            <fieldset>
-                <legend>Email validation</legend>  
-                {(
-                  <div>
-                      <label>This email has not yet been validated</label>
-                      <label>To proceed, is necessary insert the code sent by email.</label>
-                      <label>Code:</label>
-                      <input className="form-control" type="text" ref={this.codigo}/>
-                  </div>                     
-                )}
-                {this.showMsg && (
-                    <label className='friendlyMsg' >{this.alertMsg}"</label>
-                )}
-                <input className="btn btn-primary" type="submit" value="Submit" />
-          </fieldset>  
-          </form>
-        );
-      }
+  return (
+    <>
+      <Form>
+        <FloatCard title='Email validation'>
+          <FloatCard.Body>
+            <Form.Group className='mb-3'>
+              <Form.Text>
+                <p>
+                  This email has not yet been validated<br />
+                  To proceed, is necessary insert the code sent by email.
+                </p>
+              </Form.Text>
+              <Form.Label>Code<span className='require'>*</span></Form.Label>
+              <Form.Control type="text" value={code} onChange={(e) => setCode(e.target.value)}></Form.Control>
+              {error.code && <span className="error">{error.code}</span>}
+            </Form.Group>
+          </FloatCard.Body>
+          <FloatCard.Footer className="p-3">
+            <Button className="me-2" variant="success" onClick={handleSubmit}><i className="bi bi-send"></i> Submit</Button>
+            <Link to="/select-project">
+              <Button><i className="bi bi-arrow-left"></i> Back</Button>
+            </Link>
+            <hr></hr>
+            <div>
+              <label className='cursor' onClick={() => signOut()}><i className="bi bi-box-arrow-left"></i> Sign Out</label>
+            </div>
+          </FloatCard.Footer>
+        </FloatCard>
+      </Form>
+      {loader}
+    </>
+  );
 }
-
-export default withRouter(EmailValidationPage)

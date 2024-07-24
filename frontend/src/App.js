@@ -4,22 +4,14 @@ import AuthProvider from './contexts/auth';
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App() {
-    return (        
+    return (
         <AuthProvider>
-            <div  className="container-fluid">
-                <div  className="page content">
-                    <header>
-                        <h1>Sora - 1.0</h1>
-                    </header>  
-                    <main>
-                        <BrowserRouter>
-                            <Routes />
-                        </BrowserRouter>
-                    </main>
-                </div>
-            </div>
+            <BrowserRouter basename="/gui">
+                <Routes />
+            </BrowserRouter>
             <ToastContainer autoClose={3000} />
         </AuthProvider>
     );

@@ -3,108 +3,98 @@ import UserService from "../services/userService";
 
 export const AuthContext = createContext({});
 
+const _USER_KEY_ = 'SoraInfoUser';
 function getUserInfo() {
-    const strUser = localStorage.getItem('InfoUser');
-    return !strUser?undefined: JSON.parse(strUser);
+    let user = localStorage.getItem(_USER_KEY_);
+    let storage = localStorage;
+    if (!user) {
+        user = sessionStorage.getItem(_USER_KEY_);
+        storage = sessionStorage;
+    }
+    if (user) {
+        user = JSON.parse(user);
+    }
+    return { user, storage };
 }
 
-export function accessToken()
-{
-    const user = getUserInfo();
-    return user?.accessToken;
+export function accessToken() {
+    const { user } = getUserInfo();
+    return (user || {}).accessToken;
 }
 
-function AuthProvider({ children }) {
+export function refreshToken() {
+    const { user } = getUserInfo();
+    return (user || {}).refreshToken;
+}
+
+export default function AuthProvider({ children }) {
+    const userService = new UserService();
+
     const [user, setUser] = useState(null);
-    const [loadingAuth, setLoadingAuth] = useState(false);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         function loadStorage() {
-            const storageUser = localStorage.getItem('InfoUser');
-
-            if (storageUser) {
-                setUser(JSON.parse(storageUser));
+            const { user } = getUserInfo();
+            if (user) {
+                userService.userVerify(user.email).then(() => {
+                    setUser(user);
+                }).catch(() => {
+                  signOut();
+                }).finally(() => setLoading(false));
+            } else {
                 setLoading(false);
             }
-
-            setLoading(false);
         }
-
+        setLoading(true);
         loadStorage();
     }, [])
 
-    function isAuthenticated()
-    {
-        const user = getUserInfo();
-        return user !== null && !!user.accessToken;
+    function setUserInfo(data, storage) {
+        setUser(data);
+        storage.setItem(_USER_KEY_, JSON.stringify(data));
     }
 
-    function refreshToken()
-    {
-        const user = getUserInfo();
-        return user?.refreshToken;
-    }
-
-    async function signUp(email, userName, confirmPassword, password) {
-        setLoadingAuth(true);
-        const userService = new UserService();
-        userService.create(
-            {
-                "username": userName,
-                "email": email,
-                "password": password,
-                "confirm_password": confirmPassword
-            }
-        ).then((result) => {
-
-            let data = {
-                nome: userName,
-                email: email
-            }
-
-            setUser(data);
-            storageUser(data);
-            setLoadingAuth(false);      
-        }).catch(() => {
-            setLoadingAuth(false);   
-        });
-    }
-
-    function storageUser(data){
-        localStorage.setItem('InfoUser', JSON.stringify(data));
-    }
-
-    async function signOut(){
-        localStorage.removeItem('InfoUser');
+    function signOut() {
+        sessionStorage.removeItem(_USER_KEY_);
+        localStorage.removeItem(_USER_KEY_);
         setUser(null);
     }
 
-    async function signIn(email, password){
-        setLoadingAuth(true);
-        const userService = new UserService();
-        userService.login(email, password).then((response) => {
+    function signIn(email, password, remember) {
+        return userService.login(email, password).then(response => {
             const data = response.data;
-            console.log(data);
             let info = {
                 nome: data.nome,
                 email: data.email,
+                emailVerified: data['email-verified'],
                 accessToken: data['access-token'],
                 refreshToken: data['refresh-token'],
             }
-            setUser(info);
-            storageUser(info);
-            setLoadingAuth(false);  
+            const storage = remember ? localStorage : sessionStorage;
+            setUserInfo(info, storage);
+            return true;
         }).catch(() => {
-            setLoadingAuth(false);  
-        });      
+            return false
+        });
+    }
+
+    function verifyEmail(token) {
+        return userService.validateEmail(
+            token
+        ).then((resp) => {
+            if (resp.data.status === "error") {
+                throw resp.data.message;
+            }
+            const { user, storage } = getUserInfo();
+            user.emailVerified = true;
+            setUserInfo(user, storage);
+        })
     }
 
     return (
-        <AuthContext.Provider value={{ signed: !!user, user, loading, signUp, signOut, signIn, loadingAuth }}>
+        <AuthContext.Provider value={{ signed: !!user, user, loading, signOut, signIn, verifyEmail }}>
             {children}
         </AuthContext.Provider>
     )
 }
-
-export default AuthProvider;

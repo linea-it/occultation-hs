@@ -27,8 +27,6 @@ export default class ProjectService {
     }
 
     validateBody(bodyname, elementar, typeElementar) {
-        console.log("passei");
-
         let info = {
             "bodyname": bodyname,
             "ephemcontent": elementar
@@ -42,5 +40,21 @@ export default class ProjectService {
         }
 
         return api.post(`validate-body`, info);
+    }
+
+    getBodies(projectId){
+        return api.get(`bodies/${projectId}`).then(response => response.data);
+    }
+
+    getPredictions(projectId){
+        return api.get(`predictions/${projectId}`).then(response => response.data);
+    }
+
+    deletePrediction(prediction){
+        return api.delete(`delete-prediction/${prediction.id}`).then(response => response);
+    }
+
+    putPredictionName(prediction){
+        return api.put(`prediction-name/${prediction.id}`, prediction).then(response => response);
     }
 }

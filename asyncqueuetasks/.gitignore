@@ -1,0 +1,5 @@
+/build-*
+/gui-a
+tasks.db
+*.db
+mapas

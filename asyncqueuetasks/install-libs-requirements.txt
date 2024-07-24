@@ -1,0 +1,9 @@
+astropy
+astroquery
+matplotlib
+numpy
+scipy
+spiceypy
+pyerfa
+pandas
+sora-astro

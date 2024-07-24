@@ -1,10 +1,9 @@
 django
-celery
-kombu
 djangorestframework
 django-rest-passwordreset
 django-cors-headers
-sora-astro
+djangorestframework-simplejwt
+six
 PyQt5
 PyQtWebEngine-Qt5
 PyQtWebEngine

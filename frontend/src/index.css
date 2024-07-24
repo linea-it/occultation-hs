@@ -28,5 +28,19 @@ button {
 }
 
 .error{
-  color:rgb(189, 0, 0)
+  color:brown;
+  font-size: 12px;
+}
+
+.require {
+  color: brown;
+  margin-left: 0.25rem;
+}
+
+.campo{
+  padding-top: 10px;
+}
+
+.btn-width{
+  width: 100% !important;
 }

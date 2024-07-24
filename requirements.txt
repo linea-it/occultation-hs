@@ -1,8 +1,6 @@
+six
 django
-celery
-kombu
 djangorestframework
 django-rest-passwordreset
 django-cors-headers
 djangorestframework-simplejwt
-sora-astro

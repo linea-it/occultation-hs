@@ -1,0 +1,19 @@
+C:\Users\user\.conda\envs\asyncqueuetasks\Lib\site-packages
+
+
+
+precisa copiar os arquivos do astropy para funcionar
+o ideal é descobrir quais que precisam ser copiados
+
+
+1. adicionar a validacao do body com ephenname
+2. adicionar a validacao do body com ephemeris sendo um zip
+3. adicionar geracao de grafico
+4. criar um cliente GUI em c#
+5. fazer alteracoes no django para nao precisar do astropy e sora
+6. fazer instalador do django
+7. fazer um executar o outro e quando terminar encerrar o outro
+8. trabalhar no grafico.
+
+
+
